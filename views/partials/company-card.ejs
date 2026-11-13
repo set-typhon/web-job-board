@@ -1,0 +1,60 @@
+<article class="company-card">
+  <header class="company-card__header">
+    <% if (company.logo) { %>
+      <img
+        class="company-card__logo"
+        src="<%= company.logo.startsWith('http') || company.logo.startsWith('/') || company.logo.startsWith('.') ? company.logo : basePath + '/' + company.logo %>"
+        alt="<%= company.name %> logo"
+        loading="lazy"
+      >
+    <% } %>
+    <h2 class="company-card__name"><%= company.name %></h2>
+  </header>
+
+  <% if (company.description) { %>
+    <p class="company-card__description"><%= company.description %></p>
+  <% } %>
+
+  <dl class="company-card__facts">
+    <% if (company.founded) { %>
+      <div class="company-card__fact">
+        <dt data-i18n="company.founded">Founded</dt>
+        <dd><%= company.founded %></dd>
+      </div>
+    <% } %>
+
+    <% if (company.size) { %>
+      <div class="company-card__fact">
+        <dt data-i18n="company.size">Company size</dt>
+        <dd><%= company.size %></dd>
+      </div>
+    <% } %>
+
+    <% if (company.industry) { %>
+      <div class="company-card__fact">
+        <dt data-i18n="company.industry">Industry</dt>
+        <dd><%= company.industry %></dd>
+      </div>
+    <% } %>
+  </dl>
+
+  <% if (company.tags && company.tags.length > 0) { %>
+    <ul class="company-card__tags" aria-label="Company categories">
+      <% company.tags.forEach(tag => { %>
+        <li class="company-card__tag"><%= tag %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <% if (company.website) { %>
+    <a
+      class="company-card__profile-link"
+      href="<%= company.website %>"
+      target="_blank"
+      rel="noopener noreferrer"
+      data-i18n="company.viewProfile"
+    >
+      View company profile
+    </a>
+  <% } %>
+</article>

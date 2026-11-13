@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en" data-locale="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Submit your application for <%= job.title %> at <%= job.company.name %>.">
+  <title>Apply — <%= job.title %> — Heuristic</title>
+  <link rel="stylesheet" href="<%= basePath %>/css/main.css">
+  <script src="<%= basePath %>/js/site.js" defer></script>
+</head>
+<body class="page page--apply">
+  <%- include('../partials/header') %>
+
+  <main class="apply-page" id="main-content">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item"><a href="<%= basePath %>/jobs">Jobs</a></li>
+        <li class="breadcrumbs__item"><a href="<%= basePath %>/jobs/<%= encodeURIComponent(job.id) %>"><%= job.title %></a></li>
+        <li class="breadcrumbs__item" aria-current="page">Apply</li>
+      </ol>
+    </nav>
+
+    <article class="apply-page__summary">
+      <header class="apply-page__heading">
+        <h1 class="apply-page__job-title"><%= job.title %></h1>
+        <p class="apply-page__job-meta"><%= job.company.name %> <span aria-hidden="true">•</span> <%= job.location %> <span aria-hidden="true">•</span> <%= job.employmentType %></p>
+      </header>
+    </article>
+
+    <div class="apply-layout">
+      <section class="application-form-section" aria-labelledby="application-form-title">
+        <h2 class="application-form-section__title" id="application-form-title" data-i18n="apply.formTitle">Application form</h2>
+
+        <form class="application-form" action="<%= basePath %>/apply/<%= encodeURIComponent(job.id) %>" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="jobId" value="<%= job.id %>">
+
+          <fieldset class="application-form__group">
+            <legend class="visually-hidden">Personal information</legend>
+            <div class="form-field">
+              <label class="form-field__label" for="first-name" data-i18n="apply.firstName">First name*</label>
+              <input class="form-field__input" id="first-name" name="firstName" type="text" autocomplete="given-name" required>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="last-name" data-i18n="apply.lastName">Last name*</label>
+              <input class="form-field__input" id="last-name" name="lastName" type="text" autocomplete="family-name" required>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="preferred-name" data-i18n="apply.preferredName">Preferred name</label>
+              <input class="form-field__input" id="preferred-name" name="preferredName" type="text" autocomplete="nickname">
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="email" data-i18n="apply.email">Email*</label>
+              <input class="form-field__input" id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="phone" data-i18n="apply.phone">Phone*</label>
+              <input class="form-field__input" id="phone" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="city" data-i18n="apply.city">City*</label>
+              <input class="form-field__input" id="city" name="city" type="text" autocomplete="address-level2" required>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="state" data-i18n="apply.state">State/Province*</label>
+              <input class="form-field__input" id="state" name="state" type="text" autocomplete="address-level1" required>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="country" data-i18n="apply.country">Country*</label>
+              <select class="form-field__select" id="country" name="country" autocomplete="country-name" required>
+                <option value="">Select...</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Ukraine">Ukraine</option>
+ <option value="UK">United Kingdom</option>
+                <option value="USA">United States</option>
+                 <option value="Germany">Germany</option>
+                <option value="Norway">Norway</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <fieldset class="application-form__group">
+            <legend class="visually-hidden">Documents and professional links</legend>
+            <div class="form-field">
+              <label class="form-field__label" for="resume" data-i18n="apply.resume">Resume*</label>
+              <input class="form-field__input" id="resume" name="resume" type="file" accept=".pdf,.doc,.docx" required>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="cover-letter" data-i18n="apply.coverLetter">Cover letter (optional)</label>
+              <input class="form-field__input" id="cover-letter" name="coverLetter" type="file" accept=".pdf,.doc,.docx,.txt">
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="code-samples">GitHub/code samples</label>
+              <input class="form-field__input" id="code-samples" name="codeSamples" type="file" accept=".pdf,.zip,.txt,.doc,.docx">
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="work-samples">Additional work samples</label>
+              <input class="form-field__input" id="work-samples" name="workSamples" type="file" accept=".pdf,.zip,.png,.jpg,.jpeg">
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="linkedin">LinkedIn profile</label>
+              <input class="form-field__input" id="linkedin" name="linkedin" type="url" autocomplete="url">
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="portfolio">Website/blog/portfolio</label>
+              <input class="form-field__input" id="portfolio" name="portfolio" type="url">
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="github">GitHub profile</label>
+              <input class="form-field__input" id="github" name="github" type="url">
+            </div>
+          </fieldset>
+
+          <fieldset class="application-form__group">
+            <legend class="application-form__legend" data-i18n="apply.opportunityType">Select type of opportunity (select all that apply) *</legend>
+            <div class="form-options" data-required-checkbox-group>
+              <label class="form-option"><input class="form-option__input" type="checkbox" name="opportunityType" value="Full time/Permanent"> <span>Full time/Permanent</span></label>
+              <label class="form-option"><input class="form-option__input" type="checkbox" name="opportunityType" value="Part time/Permanent"> <span>Part time/Permanent</span></label>
+              <label class="form-option"><input class="form-option__input" type="checkbox" name="opportunityType" value="Full time/Internship or Temporary"> <span>Full time/Internship or Temporary</span></label>
+              <label class="form-option"><input class="form-option__input" type="checkbox" name="opportunityType" value="Part time/Internship or Temporary"> <span>Part time/Internship or Temporary</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="application-form__group">
+            <legend class="visually-hidden">Availability and salary</legend>
+            <div class="form-field">
+              <label class="form-field__label" for="onsite-availability">If required for the position, are you able to work onsite from one of our office locations? *</label>
+              <select class="form-field__select" id="onsite-availability" name="onsiteAvailability" required>
+                <option value="">Select...</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="Depending on location">Depending on location</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="available-start">Date available to start *</label>
+              <input class="form-field__input" id="available-start" name="availableStart" type="date" required>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="salary-range">Desired salary range *</label>
+              <input class="form-field__input" id="salary-range" name="salaryRange" type="text" placeholder="e.g. 60,000–75,000 USD" required>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="source">How did you hear about this position? *</label>
+              <select class="form-field__select" id="source" name="source" required>
+                <option value="">Select...</option>
+                <option value="Company website">Company website</option>
+                <option value="Job board">Job board</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Career fair or event">Career fair or event</option>
+                <option value="Employee referral">Employee referral</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-field form-field--textarea">
+              <label class="form-field__label" for="referral-details">If you heard about this opportunity through an event, career fair or employee referral, please identify the event and/or person who referred you.</label>
+              <textarea class="form-field__textarea" id="referral-details" name="referralDetails" rows="5"></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset class="application-form__group">
+            <legend class="visually-hidden">Previous experience with the company</legend>
+            <div class="form-field">
+              <label class="form-field__label" for="previous-employment">Have you currently or have you ever been employed with <%= job.company.name %>? *</label>
+              <select class="form-field__select" id="previous-employment" name="previousEmployment" required>
+                <option value="">Select...</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+            <div class="form-field form-field--textarea">
+              <label class="form-field__label" for="previous-position">If you are currently or have been employed with <%= job.company.name %>, what position(s) and when?</label>
+              <textarea class="form-field__textarea" id="previous-position" name="previousPosition" rows="4"></textarea>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="programs">Have you ever participated in company programs or initiatives (such as summer school, emerging leaders, or student ambassador programs)? *</label>
+              <select class="form-field__select" id="programs" name="programs" required>
+                <option value="">Select...</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+            <div class="form-field form-field--textarea">
+              <label class="form-field__label" for="program-details">If you have participated in company programs or initiatives, in what capacity, what program and when?</label>
+              <textarea class="form-field__textarea" id="program-details" name="programDetails" rows="4"></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset class="application-form__group">
+            <legend class="visually-hidden">Education and experience</legend>
+            <div class="form-field">
+              <label class="form-field__label" for="highest-degree">Highest degree/level attained *</label>
+              <select class="form-field__select" id="highest-degree" name="highestDegree" required>
+                <option value="">Select...</option>
+                <option value="High school">High school</option>
+                <option value="Associate degree">Associate degree</option>
+                <option value="Bachelor's degree">Bachelor's degree</option>
+                <option value="Master's degree">Master's degree</option>
+                <option value="Doctorate">Doctorate</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-field form-field--textarea">
+              <label class="form-field__label" for="education-details">Describe your educational experience that is most relevant to the position that you are applying for *</label>
+              <textarea class="form-field__textarea" id="education-details" name="educationDetails" rows="5" required></textarea>
+            </div>
+            <div class="form-field form-field--textarea">
+              <label class="form-field__label" for="work-experience">Describe your most relevant work experience to the position that you are applying for *</label>
+              <textarea class="form-field__textarea" id="work-experience" name="workExperience" rows="5" required></textarea>
+            </div>
+            <div class="form-field form-field--textarea">
+              <label class="form-field__label" for="career-plan">What is your personal career plan? *</label>
+              <textarea class="form-field__textarea" id="career-plan" name="careerPlan" rows="5" required></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset class="application-form__group">
+            <legend class="visually-hidden">Technical experience</legend>
+            <div class="form-field form-field--textarea">
+              <label class="form-field__label" for="products-used">Which company products or tools have you used that are relevant to this role? *</label>
+              <textarea class="form-field__textarea" id="products-used" name="productsUsed" rows="5" required></textarea>
+            </div>
+            <div class="form-field form-field--textarea">
+              <label class="form-field__label" for="programming-experience">Describe your experience and proficiency with relevant programming languages or tools.</label>
+              <textarea class="form-field__textarea" id="programming-experience" name="programmingExperience" rows="5"></textarea>
+            </div>
+            <div class="form-field form-field--textarea">
+              <label class="form-field__label" for="wolfram-alpha">Describe a challenging technical project you have worked on recently. *</label>
+              <textarea class="form-field__textarea" id="wolfram-alpha" name="wolframAlphaExperience" rows="5" required></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset class="application-form__group">
+            <legend class="visually-hidden">Privacy and consent</legend>
+            <div class="form-field">
+              <label class="form-field__label" for="recruiter-consent">Do you give <%= job.company.name %> consent to share your application information with some of its trusted recruiters hiring people with your qualifications? *</label>
+              <select class="form-field__select" id="recruiter-consent" name="recruiterConsent" required>
+                <option value="">Select...</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+            <label class="form-option form-option--privacy">
+              <input class="form-option__input" type="checkbox" name="privacyConsent" value="accepted" required>
+              <span>I agree to the retention of my personal data as explained in the privacy policy.</span>
+            </label>
+          </fieldset>
+
+          <button class="application-form__submit" type="submit" data-i18n="apply.submit">Submit application</button>
+        </form>
+      </section>
+
+      <aside class="apply-help" aria-labelledby="apply-help-title">
+        <h2 class="apply-help__title" id="apply-help-title">Before you submit</h2>
+        <p class="apply-help__description">Complete the required fields and attach your resume. Your application is saved locally with this project for demonstration purposes.</p>
+        <p class="apply-help__note">Fields marked with * are required.</p>
+        <a class="apply-help__back-link" href="<%= basePath %>/jobs/<%= encodeURIComponent(job.id) %>">Back to job details</a>
+      </aside>
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

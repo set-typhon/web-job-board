@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en" data-locale="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore technology jobs at ambitious startups with Heuristic.">
+  <title>Heuristic — Find your next startup job</title>
+  <link rel="stylesheet" href="<%= basePath %>/css/main.css">
+  <script src="<%= basePath %>/js/site.js" defer></script>
+</head>
+<body class="page page--home">
+  <%- include('../partials/header') %>
+
+  <main class="home-page" id="main-content">
+    <section class="home-hero" aria-labelledby="home-hero-title">
+      <picture class="home-hero__picture">
+        <source
+          media="(max-width: 48rem)"
+          srcset="<%= basePath %>/assets/images/hero-office-mobile.webp 480w"
+          sizes="100vw"
+        >
+        <img
+          class="home-hero__image"
+          src="<%= basePath %>/assets/images/hero-office.webp"
+          srcset="<%= basePath %>/assets/images/hero-office.webp 612w"
+          sizes="(max-width: 48rem) 100vw, 50vw"
+          alt="Colleagues discussing a project around a laptop in a bright office"
+          fetchpriority="high"
+        >
+      </picture>
+      <article class="home-hero__content">
+        <h1 class="home-hero__title" id="home-hero-title" data-i18n="home.heroTitle">Your future is bright with Heuristic</h1>
+        <p class="home-hero__description" data-i18n="home.heroDescription">Over the last few decades, tech startups have achieved unbelievable things, changing the lives of everyone involved as well as millions of people across the globe in the process. At Heuristic, we think startups are one of the greatest forms of giving people true meaning in their lives while making the world a better place. We see a world where people get to work on things that they are passionate about while solving real and challenging problems. Our mission is to help people find truly meaningful work where they can have an impact and take part in building something new for the group.</p>
+      </article>
+    </section>
+
+    <section class="home-search-section" aria-labelledby="home-search-title">
+      <div class="home-search-section__intro">
+        <h2 class="home-search-section__title" id="home-search-title" data-i18n="home.searchTitle">Join a startup</h2>
+        <p class="home-search-section__subtitle" data-i18n="home.searchSubtitle">Discover 1266 open positions</p>
+      </div>
+      <form class="job-search" action="<%= basePath %>/jobs" method="get" role="search" aria-label="Search startup jobs">
+        <div class="job-search__field job-search__field--keyword">
+          <label class="visually-hidden" for="home-search-keyword" data-i18n="search.keywordLabel">Job title or keyword</label>
+          <input
+            class="job-search__input"
+            id="home-search-keyword"
+            type="search"
+            name="q"
+            placeholder="Job title or keyword"
+            value=""
+            autocomplete="off"
+            data-i18n-placeholder="search.keywordPlaceholder"
+            aria-label="Job title or keyword"
+          >
+        </div>
+        <div class="job-search__field job-search__field--location">
+          <label class="visually-hidden" for="home-search-location" data-i18n="search.locationLabel">City, country or area</label>
+          <input
+            class="job-search__input"
+            id="home-search-location"
+            type="search"
+            name="location"
+            placeholder="City, country or area"
+            value=""
+            autocomplete="address-level2"
+            data-i18n-placeholder="search.locationPlaceholder"
+            aria-label="City, country or area"
+          >
+        </div>
+        <div class="job-search__field job-search__field--workplace">
+          <label class="visually-hidden" for="home-search-workplace" data-i18n="search.workplaceLabel">Workplace</label>
+          <select class="job-search__select" id="home-search-workplace" name="workplace" aria-label="Workplace">
+            <option value="" data-i18n="search.workplace">Workplace</option>
+            <option value="Remote">Remote</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="On-site">On-site</option>
+          </select>
+        </div>
+        <div class="job-search__field job-search__field--type">
+          <label class="visually-hidden" for="home-search-type" data-i18n="search.jobTypeLabel">Job type</label>
+          <select class="job-search__select" id="home-search-type" name="type" aria-label="Job type">
+            <option value="" data-i18n="search.jobType">Job type</option>
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Internship">Internship</option>
+            <option value="Contract">Contract</option>
+            <option value="Freelance">Freelance</option>
+          </select>
+        </div>
+        <button class="job-search__submit" type="submit" data-i18n="search.submit">Search</button>
+      </form>
+    </section>
+
+    <section class="home-categories" aria-labelledby="home-categories-title">
+      <header class="section-heading">
+        <h2 class="section-heading__title" id="home-categories-title" data-i18n="home.categoriesTitle">Explore by category</h2>
+      </header>
+      <div class="category-grid">
+        <article class="category-card">
+          <h3 class="category-card__title"><a href="<%= basePath %>/jobs?category=SaaS"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.saas">SaaS</span></a></h3>
+          <p class="category-card__description">Sample category description.</p>
+        </article>
+        <article class="category-card">
+          <h3 class="category-card__title"><a href="<%= basePath %>/jobs?category=Artificial%20Intelligence"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.ai">Artificial Intelligence</span></a></h3>
+          <p class="category-card__description">Sample category description.</p>
+        </article>
+        <article class="category-card">
+          <h3 class="category-card__title"><a href="<%= basePath %>/jobs?category=Enterprise%20Software"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.enterprise">Enterprise Software</span></a></h3>
+          <p class="category-card__description">Sample category description.</p>
+        </article>
+        <article class="category-card">
+          <h3 class="category-card__title"><a href="<%= basePath %>/jobs?category=E-commerce"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.ecommerce">E-commerce</span></a></h3>
+          <p class="category-card__description">Sample category description.</p>
+        </article>
+        <article class="category-card">
+          <h3 class="category-card__title"><a href="<%= basePath %>/jobs?category=Fintech"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.fintech">Fintech</span></a></h3>
+          <p class="category-card__description">Sample category description.</p>
+        </article>
+        <article class="category-card">
+          <h3 class="category-card__title"><a href="<%= basePath %>/jobs?category=Manufacturing"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.manufacturing">Manufacturing</span></a></h3>
+          <p class="category-card__description">Sample category description.</p>
+        </article>
+      </div>
+      <a class="home-categories__more" href="<%= basePath %>/jobs" data-i18n="home.exploreMore">Explore more</a>
+    </section>
+
+    <section class="home-featured-jobs" aria-labelledby="home-featured-title">
+      <header class="section-heading">
+        <h2 class="section-heading__title" id="home-featured-title" data-i18n="home.featuredTitle">Discover the most relevant positions</h2>
+      </header>
+      <div class="job-list job-list--featured">
+        <% featuredJobs.forEach(job => { %>
+          <%- include('../partials/job-card', { job: job }) %>
+        <% }) %>
+      </div>
+      <a class="home-featured-jobs__more" href="<%= basePath %>/jobs" data-i18n="home.exploreMore">Explore more</a>
+    </section>
+
+    <section class="home-investors" aria-labelledby="home-investors-title">
+      <aside class="home-investors__content" aria-label="Investor connections">
+        <h2 class="home-investors__title" id="home-investors-title" data-i18n="home.investorsTitle">Connect to leading investors</h2>
+        <p class="home-investors__description">Unsure which 'seed' opportunity is right for you? Use our investor matching tool to help you on to your next step. Be AWARE - that your best aims to see highs on the funding journey, providing you with an overview of some of the service funding sources, which also can be reached through an in-depth plan and venture making is easier for you to navigate through the various possibilities. However, it is neither advice nor assistance to show an exhaustive and complete list nor advising an investor.</p>
+        <a class="home-investors__link" href="mailto:ouramazing@mail.com">Find investors</a>
+      </aside>
+      <figure class="home-investors__visual">
+        <picture>
+          <source media="(max-width: 48rem)" srcset="<%= basePath %>/assets/images/investor-dashboard-mobile.webp 720w" sizes="100vw">
+          <img
+            class="home-investors__image"
+            src="<%= basePath %>/assets/images/investor-dashboard.webp"
+            srcset="<%= basePath %>/assets/images/investor-dashboard.webp 1000w"
+            sizes="(max-width: 48rem) 100vw, 40vw"
+            alt="Illustration of an investment dashboard with income, utilities, and revenue indicators"
+            loading="lazy"
+          >
+        </picture>
+        <figcaption class="visually-hidden">Investor dashboard illustration</figcaption>
+      </figure>
+    </section>
+
+    <section class="home-benefits" aria-labelledby="home-benefits-title">
+      <header class="section-heading">
+        <h2 class="section-heading__title" id="home-benefits-title" data-i18n="home.benefitsTitle">Why Choose Us?</h2>
+      </header>
+      <div class="benefit-grid">
+        <article class="benefit-card">
+          <span class="benefit-card__icon" aria-hidden="true">⌂</span>
+          <h3 class="benefit-card__title" data-i18n="home.benefitPotential">Potential</h3>
+          <p class="benefit-card__description">Whether you are looking for a job or to advertise your startup, you will work through essential steps and projects.</p>
+        </article>
+        <article class="benefit-card">
+          <span class="benefit-card__icon" aria-hidden="true">⚑</span>
+          <h3 class="benefit-card__title" data-i18n="home.benefitDesign">Design</h3>
+          <p class="benefit-card__description">Our system is designed solely to bring you success in your career or project.</p>
+        </article>
+        <article class="benefit-card">
+          <span class="benefit-card__icon" aria-hidden="true">ⓧ</span>
+          <h3 class="benefit-card__title" data-i18n="home.benefitMarketing">Marketing</h3>
+          <p class="benefit-card__description">Strong consultation, professional photos and a sophisticated digital marketing plan are necessary for every lasting modern-day business.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

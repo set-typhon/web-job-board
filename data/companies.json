@@ -1,0 +1,32 @@
+[
+  {
+    "id": "cloudflare",
+    "name": "Cloudflare",
+    "logo": "assets/images/company-cloudflare.png",
+    "description": "Cloudflare builds a global cloud network designed to make everything connected to the Internet secure, private, fast, and reliable.",
+    "founded": "2009",
+    "size": "3,500+ employees",
+    "industry": "Internet Software & Services",
+    "tags": [
+      "Enterprise software",
+      "Cybersecurity",
+      "SaaS"
+    ],
+    "website": "https://www.cloudflare.com/"
+  },
+  {
+    "id": "wise",
+    "name": "Wise",
+    "logo": "assets/images/company-wise.png",
+    "description": "Wise is a global technology company building the best way to move and manage the world's money with instant, transparent transfers.",
+    "founded": "2011",
+    "size": "5,000+ employees",
+    "industry": "Fintech & Financial Services",
+    "tags": [
+      "Fintech",
+      "Enterprise software",
+      "Payments"
+    ],
+    "website": "https://wise.com/"
+  }
+]

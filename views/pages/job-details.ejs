@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" data-locale="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="<%= job.title %> at <%= job.company.name %> — job details and requirements.">
+  <title><%= job.title %> — Heuristic</title>
+  <link rel="stylesheet" href="<%= basePath %>/css/main.css">
+  <script src="<%= basePath %>/js/site.js" defer></script>
+  <script type="application/ld+json">
+    <%- JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      "title": job.title,
+      "description": job.description,
+      "datePosted": job.datePosted,
+      "employmentType": job.employmentType,
+      "hiringOrganization": {
+        "@type": "Organization",
+        "name": job.company.name
+      },
+      "jobLocation": {
+        "@type": "Place",
+        "address": job.location
+      }
+    }) %>
+  </script>
+</head>
+<body class="page page--job-details">
+  <%- include('../partials/header') %>
+
+  <main class="job-details-page" id="main-content">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item"><a href="<%= basePath %>/jobs">Jobs</a></li>
+        <li class="breadcrumbs__item"><a href="<%= basePath %>/jobs?role=<%= encodeURIComponent(job.department || 'Engineering') %>"><%= job.department || 'Engineering' %></a></li>
+        <li class="breadcrumbs__item" aria-current="page"><%= job.title %></li>
+      </ol>
+    </nav>
+
+    <% if (applied) { %>
+      <p class="job-details__success" role="status">Your application was saved locally. Thank you for applying!</p>
+    <% } %>
+
+    <div class="job-details-layout">
+      <article class="job-details">
+        <header class="job-details__header">
+          <img
+            class="job-details__company-logo"
+            src="<%= basePath %>/<%= job.company.logo %>"
+            alt="<%= job.company.name %> logo"
+          >
+          <div class="job-details__heading">
+            <h1 class="job-details__title"><%= job.title %></h1>
+            <p class="job-details__meta">
+              <span><%= job.company.name %></span>
+              <span aria-hidden="true">•</span>
+              <span><%= job.location %></span>
+              <span aria-hidden="true">•</span>
+              <span><%= job.employmentType %></span>
+            </p>
+          </div>
+        </header>
+
+        <section class="job-details__section" aria-labelledby="job-description-title">
+          <h2 class="visually-hidden" id="job-description-title">Job description</h2>
+          <p class="job-details__description"><%= job.description %></p>
+        </section>
+
+        <% if (job.responsibilities && job.responsibilities.length > 0) { %>
+          <section class="job-details__section" aria-labelledby="job-responsibilities-title">
+            <h2 class="job-details__section-title" id="job-responsibilities-title" data-i18n="jobDetails.responsibilities">Responsibilities</h2>
+            <ul class="job-details__list">
+              <% job.responsibilities.forEach(item => { %>
+                <li><%= item %></li>
+              <% }) %>
+            </ul>
+          </section>
+        <% } %>
+
+        <% if (job.qualifications && job.qualifications.length > 0) { %>
+          <section class="job-details__section" aria-labelledby="job-qualifications-title">
+            <h2 class="job-details__section-title" id="job-qualifications-title" data-i18n="jobDetails.qualifications">Qualifications</h2>
+            <ul class="job-details__list">
+              <% job.qualifications.forEach(item => { %>
+                <li><%= item %></li>
+              <% }) %>
+            </ul>
+          </section>
+        <% } %>
+
+        <% if (job.preferredQualifications && job.preferredQualifications.length > 0) { %>
+          <section class="job-details__section" aria-labelledby="job-preferred-title">
+            <h2 class="job-details__section-title" id="job-preferred-title" data-i18n="jobDetails.preferredQualifications">Preferred qualifications</h2>
+            <ul class="job-details__list">
+              <% job.preferredQualifications.forEach(item => { %>
+                <li><%= item %></li>
+              <% }) %>
+            </ul>
+          </section>
+        <% } %>
+
+        <section class="job-overview" aria-labelledby="job-overview-title">
+          <h2 class="visually-hidden" id="job-overview-title">Position overview</h2>
+          <table class="job-overview__table">
+            <caption class="visually-hidden">Key information about this job</caption>
+            <tbody>
+              <tr><th scope="row">Location</th><td><span><%= job.location %></span></td></tr>
+              <tr><th scope="row">Job type</th><td><%= job.employmentType %></td></tr>
+              <% if (job.workplace) { %>
+                <tr><th scope="row">Workplace</th><td><%= job.workplace %></td></tr>
+              <% } %>
+              <% if (job.salary) { %>
+                <tr><th scope="row">Salary</th><td><%= job.salary %></td></tr>
+              <% } %>
+              <% if (job.reportingTo) { %>
+                <tr><th scope="row">Reporting to</th><td><%= job.reportingTo %></td></tr>
+              <% } %>
+              <% if (job.datePosted) { %>
+                <tr><th scope="row">Date posted</th><td><time datetime="<%= job.datePosted %>"><%= job.datePosted %></time></td></tr>
+              <% } %>
+            </tbody>
+          </table>
+        </section>
+
+        <p class="job-details__equal-opportunity"><%= job.company.name %> is an equal opportunity employer and values diversity at its company. Women, people of color, members of the LGBTQ community, individuals with disabilities and veterans are strongly encouraged to apply.</p>
+        <a class="job-details__apply" href="<%= basePath %>/apply/<%= encodeURIComponent(job.id) %>" data-i18n="jobDetails.apply">Apply for this job</a>
+      </article>
+
+      <aside class="job-details-sidebar" aria-label="Company and application actions">
+        <div class="job-details-sidebar__actions">
+          <a class="job-details-sidebar__apply" href="<%= basePath %>/apply/<%= encodeURIComponent(job.id) %>" data-i18n="jobDetails.apply">Apply for this job</a>
+          <button class="job-details-sidebar__save" type="button" aria-label="Save this job" aria-pressed="false" data-favorite-toggle data-i18n="jobDetails.save">Save</button>
+        </div>
+
+        <% if (company) { %>
+          <%- include('../partials/company-card', { company: company }) %>
+        <% } %>
+
+        <a class="job-details-sidebar__report" href="mailto:ouramazing@mail.com?subject=Report%20<%= encodeURIComponent(job.title) %>">Report this job ⚑</a>
+      </aside>
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<footer class="site-footer" id="site-footer">
+  <picture class="site-footer__picture">
+    <source
+      media="(max-width: 48rem)"
+      srcset="<%= basePath %>/assets/images/footer-city-mobile.webp 720w"
+      sizes="100vw"
+    >
+    <img
+      class="site-footer__image"
+      src="<%= basePath %>/assets/images/footer-city.webp"
+      srcset="<%= basePath %>/assets/images/footer-city.webp 914w"
+      sizes="100vw"
+      alt=""
+      loading="lazy"
+    >
+  </picture>
+
+  <div class="site-footer__content">
+    <nav class="footer-navigation" aria-label="Footer navigation">
+      <section class="footer-navigation__group" aria-labelledby="footer-job-seekers">
+        <h2 class="footer-navigation__title" id="footer-job-seekers" data-i18n="footer.jobSeekers">Job seekers</h2>
+        <ul class="footer-navigation__list">
+          <li><a href="<%= basePath %>/jobs" data-i18n="footer.browseJobs">Browse jobs</a></li>
+          <li><a href="<%= basePath %>/jobs" data-i18n="footer.browseCompanies">Browse companies</a></li>
+          <li><a href="<%= basePath %>/jobs" data-i18n="footer.browseMarkets">Browse markets</a></li>
+          <li><a href="<%= basePath %>/jobs" data-i18n="footer.salaries">Salaries</a></li>
+          <li><a href="<%= basePath %>/jobs" data-i18n="footer.hiringTrends">Hiring trends</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-navigation__group" id="footer-employers" aria-labelledby="footer-employers-title">
+        <h2 class="footer-navigation__title" id="footer-employers-title" data-i18n="footer.employers">Employers</h2>
+        <ul class="footer-navigation__list">
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.postJob">Post a job</a></li>
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.pricing">Pricing</a></li>
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.advertise">Advertise</a></li>
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.investorList">Investor list</a></li>
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.startupDeals">Startup deals</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-navigation__group" aria-labelledby="footer-browse-title">
+        <h2 class="footer-navigation__title" id="footer-browse-title" data-i18n="footer.browse">Browse</h2>
+        <ul class="footer-navigation__list">
+          <li><a href="<%= basePath %>/jobs?workplace=Remote" data-i18n="footer.remoteJobs">Remote jobs</a></li>
+          <li><a href="<%= basePath %>/jobs?type=Part-time" data-i18n="footer.partTimeJobs">Part-time jobs</a></li>
+          <li><a href="<%= basePath %>/jobs?type=Internship" data-i18n="footer.internships">Internships</a></li>
+          <li><a href="<%= basePath %>/jobs" data-i18n="footer.collections">Collections</a></li>
+          <li><a href="<%= basePath %>/jobs" data-i18n="footer.jobBoards">Job boards</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-navigation__group" aria-labelledby="footer-company-title">
+        <h2 class="footer-navigation__title" id="footer-company-title" data-i18n="footer.company">Company</h2>
+        <ul class="footer-navigation__list">
+          <li><a href="<%= basePath %>/#site-footer" data-i18n="footer.about">About</a></li>
+          <li><a href="<%= basePath %>/#site-footer" data-i18n="footer.blog">Blog</a></li>
+          <li><a href="<%= basePath %>/#footer-contact" data-i18n="footer.contact">Contact</a></li>
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.partners">Partners</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-navigation__group footer-navigation__group--contact" id="footer-contact" aria-labelledby="footer-contact-title">
+        <h2 class="footer-navigation__title" id="footer-contact-title" data-i18n="footer.contact">Contact</h2>
+        <address class="footer-contact">
+          <p><span data-i18n="footer.emailLabel">E-mail:</span> <a href="mailto:ouramazing@mail.com">ouramazing@mail.com</a></p>
+          <p><span data-i18n="footer.phoneLabel">Contact number:</span> <a href="tel:+1234567890">+1234567890</a></p>
+          <p><a href="mailto:ouramazing@mail.com" data-i18n="footer.support">Contact support</a></p>
+        </address>
+      </section>
+    </nav>
+  </div>
+
+  <div class="site-footer__bottom">
+    <a class="site-footer__brand" href="<%= basePath %>/" aria-label="Heuristic home">Heuristic</a>
+    <p class="site-footer__copyright">© 2026 All Rights Reserved</p>
+    <nav class="social-links" aria-label="Social media">
+      <a class="social-links__link" href="https://twitter.com/" aria-label="Heuristic on Twitter">Twitter</a>
+      <a class="social-links__link" href="https://www.instagram.com/" aria-label="Heuristic on Instagram">Instagram</a>
+      <a class="social-links__link" href="https://www.facebook.com/" aria-label="Heuristic on Facebook">Facebook</a>
+      <a class="social-links__link" href="https://www.linkedin.com/" aria-label="Heuristic on LinkedIn">Linkedin</a>
+    </nav>
+  </div>
+</footer>

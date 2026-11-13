@@ -1,0 +1,57 @@
+<article class="job-card">
+  <div class="job-card__header">
+    <img
+      class="job-card__logo"
+      src="<%= job.company.logo.startsWith('http') || job.company.logo.startsWith('/') || job.company.logo.startsWith('.') ? job.company.logo : basePath + '/' + job.company.logo %>"
+      alt="<%= job.company.name %> logo"
+      loading="lazy"
+    >
+
+    <div class="job-card__company-info">
+      <h3 class="job-card__title">
+        <%= job.title %>
+      </h3>
+
+      <p class="job-card__company">
+        <%= job.company.name %>
+      </p>
+    </div>
+  </div>
+
+  <div class="job-card__details">
+    <span class="job-card__location">
+      <%= job.location %>
+    </span>
+
+    <span class="job-card__employment">
+      <%= job.employmentType %>
+    </span>
+
+    <% if (job.salary) { %>
+      <span class="job-card__salary">
+        <%= job.salary %>
+      </span>
+    <% } %>
+  </div>
+
+  <% if (job.tags && job.tags.length > 0) { %>
+    <ul class="job-card__tags" aria-label="Required skills">
+      <% job.tags.forEach(tag => { %>
+        <li class="job-card__tag">
+          <%= tag %>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <div class="job-card__footer">
+    <a
+      href="<%= basePath %>/jobs/<%= encodeURIComponent(job.id) %>"
+      class="job-card__link"
+      aria-label="View details for <%= job.title %>"
+      data-i18n="jobs.viewDetails"
+    >
+      View details
+    </a>
+  </div>
+</article>

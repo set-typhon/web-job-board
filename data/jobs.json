@@ -1,0 +1,64 @@
+[
+  {
+    "id": "job-001",
+    "title": "Frontend Developer",
+    "department": "Engineering",
+    "company": {
+      "name": "Cloudflare",
+      "logo": "assets/images/company-cloudflare.png"
+    },
+    "location": "Remote",
+    "workplace": "Remote",
+    "employmentType": "Full-time",
+    "salary": "$3000 - $4500",
+    "reportingTo": "Frontend Engineering Manager",
+    "datePosted": "2026-11-07",
+    "tags": ["JavaScript", "React", "TypeScript"],
+    "description": "Cloudflare is looking for a Frontend Developer to build fast, reliable, and accessible web interfaces used by millions of users worldwide.",
+    "responsibilities": [
+      "Develop modern, responsive web applications using React and TypeScript",
+      "Optimize frontend performance, accessibility, and cross-browser compatibility",
+      "Collaborate closely with product designers and backend engineers"
+    ],
+    "qualifications": [
+      "2+ years of experience with modern JavaScript (ES6+) and TypeScript",
+      "Strong knowledge of semantic HTML5, CSS3, and responsive layouts",
+      "Experience with React and REST/GraphQL APIs"
+    ],
+    "preferredQualifications": [
+      "Experience with web performance profiling and core web vitals",
+      "Familiarity with edge computing or CDN concepts"
+    ]
+  },
+  {
+    "id": "job-002",
+    "title": "Backend Developer",
+    "department": "Engineering",
+    "company": {
+      "name": "Wise",
+      "logo": "assets/images/company-wise.png"
+    },
+    "location": "London, United Kingdom",
+    "workplace": "Hybrid",
+    "employmentType": "Full-time",
+    "salary": "$4000 - $6000",
+    "reportingTo": "Tech Lead, Payments Core",
+    "datePosted": "2026-11-10",
+    "tags": ["Node.js", "Python", "SQL"],
+    "description": "Join Wise to build scalable, high-throughput financial services that make international money transfers instant, transparent, and cheap.",
+    "responsibilities": [
+      "Design and maintain resilient microservices in Node.js and Python",
+      "Write clean, well-tested code and optimize relational database queries",
+      "Participate in architecture reviews and on-call rotations"
+    ],
+    "qualifications": [
+      "3+ years of backend development experience with Node.js or Python",
+      "Solid understanding of SQL databases, transactions, and indexing",
+      "Experience building and documenting RESTful APIs"
+    ],
+    "preferredQualifications": [
+      "Experience in fintech, banking, or high-load distributed systems",
+      "Knowledge of Docker and Kubernetes"
+    ]
+  }
+]

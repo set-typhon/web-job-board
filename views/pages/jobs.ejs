@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" data-locale="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse startup and technology jobs by role, workplace, and employment type.">
+  <title>Jobs — Heuristic</title>
+  <link rel="stylesheet" href="<%= basePath %>/css/main.css">
+  <script src="<%= basePath %>/js/site.js" defer></script>
+</head>
+<body class="page page--jobs">
+  <%- include('../partials/header') %>
+
+  <main class="jobs-page" id="main-content">
+    <section class="jobs-search" aria-labelledby="jobs-search-title">
+      <header class="jobs-search__intro">
+        <h1 class="jobs-search__title" id="jobs-search-title" data-i18n="jobs.searchTitle">Join a startup</h1>
+        <p class="jobs-search__subtitle" data-i18n="jobs.searchSubtitle">Discover 1266 open positions</p>
+      </header>
+      <form class="job-search" action="<%= basePath %>/jobs" method="get" role="search" aria-label="Search startup jobs">
+        <div class="job-search__field job-search__field--keyword">
+          <label class="visually-hidden" for="jobs-search-keyword" data-i18n="search.keywordLabel">Job title or keyword</label>
+          <input
+            class="job-search__input"
+            id="jobs-search-keyword"
+            type="search"
+            name="q"
+            placeholder="Job title or keyword"
+            value=""
+            autocomplete="off"
+            data-i18n-placeholder="search.keywordPlaceholder"
+            aria-label="Job title or keyword"
+          >
+        </div>
+        <div class="job-search__field job-search__field--location">
+          <label class="visually-hidden" for="jobs-search-location" data-i18n="search.locationLabel">City, country or area</label>
+          <input
+            class="job-search__input"
+            id="jobs-search-location"
+            type="search"
+            name="location"
+            placeholder="City, country or area"
+            value=""
+            autocomplete="address-level2"
+            data-i18n-placeholder="search.locationPlaceholder"
+            aria-label="City, country or area"
+          >
+        </div>
+        <div class="job-search__field job-search__field--workplace">
+          <label class="visually-hidden" for="jobs-search-workplace" data-i18n="search.workplaceLabel">Workplace</label>
+          <select class="job-search__select" id="jobs-search-workplace" name="workplace" aria-label="Workplace">
+            <option value="" data-i18n="search.workplace">Workplace</option>
+            <option value="Remote">Remote</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="On-site">On-site</option>
+          </select>
+        </div>
+        <div class="job-search__field job-search__field--type">
+          <label class="visually-hidden" for="jobs-search-type" data-i18n="search.jobTypeLabel">Job type</label>
+          <select class="job-search__select" id="jobs-search-type" name="type" aria-label="Job type">
+            <option value="" data-i18n="search.jobType">Job type</option>
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Internship">Internship</option>
+            <option value="Contract">Contract</option>
+            <option value="Freelance">Freelance</option>
+          </select>
+        </div>
+        <button class="job-search__submit" type="submit" data-i18n="search.submit">Search</button>
+      </form>
+    </section>
+
+    <div class="jobs-layout">
+      <aside class="jobs-filters" aria-label="Filter jobs">
+        <form class="filter-form" action="<%= basePath %>/jobs" method="get">
+          <input type="hidden" name="q" value="">
+          <input type="hidden" name="location" value="">
+          <input type="hidden" name="workplace" value="">
+          <input type="hidden" name="type" value="">
+          <input type="hidden" name="category" value="">
+
+          <fieldset class="filter-group">
+            <legend class="filter-group__title" data-i18n="filters.roles">Roles</legend>
+            <label class="filter-option">
+              <input class="filter-option__input" type="checkbox" name="role" value="Engineer">
+              <span class="filter-option__label">Engineer <span class="filter-option__count">(<%= jobs.length %>)</span></span>
+            </label>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend class="filter-group__title" data-i18n="filters.jobTypes">Job types</legend>
+            <label class="filter-option">
+              <input class="filter-option__input" type="checkbox" name="typeFilter" value="Full-time">
+              <span class="filter-option__label">Full-time <span class="filter-option__count">(<%= jobs.length %>)</span></span>
+            </label>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend class="filter-group__title" data-i18n="filters.remote">Remote</legend>
+            <label class="filter-option">
+              <input class="filter-option__input" type="checkbox" name="remoteOnly" value="true">
+              <span class="filter-option__label" data-i18n="filters.remoteOnly">Remote only</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend class="filter-group__title" data-i18n="filters.other">Other</legend>
+            <label class="filter-option">
+              <input class="filter-option__input" type="checkbox" name="featuredOnly" value="true">
+              <span class="filter-option__label" data-i18n="filters.featuredOnly">Only show paid jobs</span>
+            </label>
+          </fieldset>
+
+          <button class="filter-form__submit" type="submit" data-i18n="filters.apply">Apply filters</button>
+          <a class="filter-form__reset" href="<%= basePath %>/jobs" data-i18n="filters.reset">Reset filters</a>
+        </form>
+      </aside>
+
+      <section class="jobs-results" aria-labelledby="jobs-results-title">
+        <header class="jobs-results__header">
+          <h2 class="jobs-results__title" id="jobs-results-title">Showing: <%= jobs.length %> jobs</h2>
+          <form class="jobs-results__sort" action="<%= basePath %>/jobs" method="get">
+            <input type="hidden" name="q" value="">
+            <input type="hidden" name="location" value="">
+            <input type="hidden" name="workplace" value="">
+            <input type="hidden" name="type" value="">
+            <input type="hidden" name="category" value="">
+
+            <label class="visually-hidden" for="jobs-sort">Sort jobs</label>
+            <select class="jobs-results__sort-select" id="jobs-sort" name="sort" aria-label="Sort jobs" data-auto-submit>
+              <option value="popular" selected>Most popular</option>
+              <option value="newest">Newest</option>
+              <option value="company">Company name</option>
+            </select>
+          </form>
+        </header>
+
+        <div class="job-list job-list--results">
+          <% jobs.forEach(job => { %>
+            <%- include('../partials/job-card', { job: job }) %>
+          <% }) %>
+        </div>
+
+        <nav class="pagination" aria-label="Job results pages">
+          <a class="pagination__link" href="?page=1" aria-label="First page">«</a>
+          <a class="pagination__link" href="?page=1" aria-label="Previous page">‹</a>
+          <a class="pagination__link pagination__link--active" href="?page=1" aria-current="page">1</a>
+          <a class="pagination__link" href="?page=1" aria-label="Next page">›</a>
+          <a class="pagination__link" href="?page=1" aria-label="Last page">»</a>
+        </nav>
+      </section>
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<header class="site-header" data-i18n="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__brand" href="<%= basePath %>/" aria-label="Heuristic home" data-i18n="brand.name">Heuristic</a>
+
+    <button
+      class="site-header__menu-toggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-controls="primary-navigation"
+      aria-expanded="false"
+      data-menu-toggle
+    >
+      <span class="site-header__menu-icon" aria-hidden="true">☰</span>
+    </button>
+
+    <nav class="site-nav" id="primary-navigation" aria-label="Main navigation" data-primary-nav>
+      <ul class="site-nav__list">
+        <li class="site-nav__item">
+          <a class="site-nav__link" href="<%= basePath %>/jobs" data-i18n="navigation.jobs">Jobs</a>
+        </li>
+        <li class="site-nav__item"><a class="site-nav__link" href="<%= basePath %>/#footer-employers" data-i18n="navigation.advertise">Advertise</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="<%= basePath %>/#footer-contact" data-i18n="navigation.contact">Contact</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="<%= basePath %>/#footer-contact" data-i18n="navigation.help">Help</a></li>
+        <li class="site-nav__item"><a class="site-nav__link site-nav__link--accent" href="mailto:ouramazing@mail.com" data-i18n="navigation.signIn">Sign in</a></li>
+        <li class="site-nav__item"><a class="site-nav__link site-nav__link--button" href="<%= basePath %>/jobs" data-i18n="navigation.getStarted">Get started</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
