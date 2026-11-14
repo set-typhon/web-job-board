@@ -1,4 +1,4 @@
-<header class="site-header" data-i18n="site-header">
+<header class="site-header">
   <div class="site-header__inner">
     <a class="site-header__brand" href="<%= basePath %>/" aria-label="Heuristic home" data-i18n="brand.name">Heuristic</a>
 
@@ -25,5 +25,10 @@
         <li class="site-nav__item"><a class="site-nav__link site-nav__link--button" href="<%= basePath %>/jobs" data-i18n="navigation.getStarted">Get started</a></li>
       </ul>
     </nav>
+
+    <div class="lang-switcher" role="group" aria-label="Language switcher">
+      <button type="button" class="lang-switcher__btn" data-lang-btn="en" aria-pressed="true">EN</button>
+      <button type="button" class="lang-switcher__btn" data-lang-btn="uk" aria-pressed="false">UA</button>
+    </div>
   </div>
 </header>

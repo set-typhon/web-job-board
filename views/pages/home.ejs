@@ -93,37 +93,72 @@
     </section>
 
     <section class="home-categories" aria-labelledby="home-categories-title">
-      <header class="section-heading">
-        <h2 class="section-heading__title" id="home-categories-title" data-i18n="home.categoriesTitle">Explore by category</h2>
-      </header>
-      <div class="category-grid">
-        <article class="category-card">
-          <h3 class="category-card__title"><a href="<%= basePath %>/jobs?category=SaaS"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.saas">SaaS</span></a></h3>
-          <p class="category-card__description">Sample category description.</p>
-        </article>
-        <article class="category-card">
-          <h3 class="category-card__title"><a href="<%= basePath %>/jobs?category=Artificial%20Intelligence"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.ai">Artificial Intelligence</span></a></h3>
-          <p class="category-card__description">Sample category description.</p>
-        </article>
-        <article class="category-card">
-          <h3 class="category-card__title"><a href="<%= basePath %>/jobs?category=Enterprise%20Software"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.enterprise">Enterprise Software</span></a></h3>
-          <p class="category-card__description">Sample category description.</p>
-        </article>
-        <article class="category-card">
-          <h3 class="category-card__title"><a href="<%= basePath %>/jobs?category=E-commerce"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.ecommerce">E-commerce</span></a></h3>
-          <p class="category-card__description">Sample category description.</p>
-        </article>
-        <article class="category-card">
-          <h3 class="category-card__title"><a href="<%= basePath %>/jobs?category=Fintech"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.fintech">Fintech</span></a></h3>
-          <p class="category-card__description">Sample category description.</p>
-        </article>
-        <article class="category-card">
-          <h3 class="category-card__title"><a href="<%= basePath %>/jobs?category=Manufacturing"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.manufacturing">Manufacturing</span></a></h3>
-          <p class="category-card__description">Sample category description.</p>
-        </article>
-      </div>
-      <a class="home-categories__more" href="<%= basePath %>/jobs" data-i18n="home.exploreMore">Explore more</a>
-    </section>
+  <header class="section-heading">
+    <h2 class="section-heading__title" id="home-categories-title" data-i18n="home.categoriesTitle">Explore by category</h2>
+  </header>
+  <div class="category-grid">
+    <article class="category-card">
+      <h3 class="category-card__title">
+        <a href="<%= basePath %>/jobs?category=SaaS">
+          <img class="category-card__icon" src="<%= basePath %>/assets/images/icon-saas.png" alt="" width="24" height="24" aria-hidden="true" loading="lazy">
+          <span data-i18n="category.saas">SaaS</span>
+        </a>
+      </h3>
+      <p class="category-card__description">Sample category description.</p>
+    </article>
+
+    <article class="category-card">
+      <h3 class="category-card__title">
+        <a href="<%= basePath %>/jobs?category=Artificial%20Intelligence">
+          <img class="category-card__icon" src="<%= basePath %>/assets/images/icon-ai.png" alt="" width="24" height="24" aria-hidden="true" loading="lazy">
+          <span data-i18n="category.ai">Artificial Intelligence</span>
+        </a>
+      </h3>
+      <p class="category-card__description">Sample category description.</p>
+    </article>
+
+    <article class="category-card">
+      <h3 class="category-card__title">
+        <a href="<%= basePath %>/jobs?category=Enterprise%20Software">
+          <img class="category-card__icon" src="<%= basePath %>/assets/images/icon-enterprise.png" alt="" width="24" height="24" aria-hidden="true" loading="lazy">
+          <span data-i18n="category.enterprise">Enterprise Software</span>
+        </a>
+      </h3>
+      <p class="category-card__description">Sample category description.</p>
+    </article>
+
+    <article class="category-card">
+      <h3 class="category-card__title">
+        <a href="<%= basePath %>/jobs?category=E-commerce">
+          <img class="category-card__icon" src="<%= basePath %>/assets/images/icon-ecommerce.png" alt="" width="24" height="24" aria-hidden="true" loading="lazy">
+          <span data-i18n="category.ecommerce">E-commerce</span>
+        </a>
+      </h3>
+      <p class="category-card__description">Sample category description.</p>
+    </article>
+
+    <article class="category-card">
+      <h3 class="category-card__title">
+        <a href="<%= basePath %>/jobs?category=Fintech">
+          <img class="category-card__icon" src="<%= basePath %>/assets/images/icon-fintech.png" alt="" width="24" height="24" aria-hidden="true" loading="lazy">
+          <span data-i18n="category.fintech">Fintech</span>
+        </a>
+      </h3>
+      <p class="category-card__description">Sample category description.</p>
+    </article>
+
+    <article class="category-card">
+      <h3 class="category-card__title">
+        <a href="<%= basePath %>/jobs?category=Manufacturing">
+          <img class="category-card__icon" src="<%= basePath %>/assets/images/icon-manufacturing.png" alt="" width="24" height="24" aria-hidden="true" loading="lazy">
+          <span data-i18n="category.manufacturing">Manufacturing</span>
+        </a>
+      </h3>
+      <p class="category-card__description">Sample category description.</p>
+    </article>
+  </div>
+  <a class="home-categories__more" href="<%= basePath %>/jobs" data-i18n="home.exploreMore">Explore more</a>
+</section>
 
     <section class="home-featured-jobs" aria-labelledby="home-featured-title">
       <header class="section-heading">

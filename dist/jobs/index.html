@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en" data-locale="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse startup and technology jobs by role, workplace, and employment type.">
+  <title>Jobs — Heuristic</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <script src="../js/site.js" defer></script>
+</head>
+<body class="page page--jobs">
+  <header class="site-header" data-i18n="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__brand" href="../" aria-label="Heuristic home" data-i18n="brand.name">Heuristic</a>
+
+    <button
+      class="site-header__menu-toggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-controls="primary-navigation"
+      aria-expanded="false"
+      data-menu-toggle
+    >
+      <span class="site-header__menu-icon" aria-hidden="true">☰</span>
+    </button>
+
+    <nav class="site-nav" id="primary-navigation" aria-label="Main navigation" data-primary-nav>
+      <ul class="site-nav__list">
+        <li class="site-nav__item">
+          <a class="site-nav__link" href="../jobs" data-i18n="navigation.jobs">Jobs</a>
+        </li>
+        <li class="site-nav__item"><a class="site-nav__link" href="../#footer-employers" data-i18n="navigation.advertise">Advertise</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="../#footer-contact" data-i18n="navigation.contact">Contact</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="../#footer-contact" data-i18n="navigation.help">Help</a></li>
+        <li class="site-nav__item"><a class="site-nav__link site-nav__link--accent" href="mailto:ouramazing@mail.com" data-i18n="navigation.signIn">Sign in</a></li>
+        <li class="site-nav__item"><a class="site-nav__link site-nav__link--button" href="../jobs" data-i18n="navigation.getStarted">Get started</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="jobs-page" id="main-content">
+    <section class="jobs-search" aria-labelledby="jobs-search-title">
+      <header class="jobs-search__intro">
+        <h1 class="jobs-search__title" id="jobs-search-title" data-i18n="jobs.searchTitle">Join a startup</h1>
+        <p class="jobs-search__subtitle" data-i18n="jobs.searchSubtitle">Discover 1266 open positions</p>
+      </header>
+      <form class="job-search" action="../jobs" method="get" role="search" aria-label="Search startup jobs">
+        <div class="job-search__field job-search__field--keyword">
+          <label class="visually-hidden" for="jobs-search-keyword" data-i18n="search.keywordLabel">Job title or keyword</label>
+          <input
+            class="job-search__input"
+            id="jobs-search-keyword"
+            type="search"
+            name="q"
+            placeholder="Job title or keyword"
+            value=""
+            autocomplete="off"
+            data-i18n-placeholder="search.keywordPlaceholder"
+            aria-label="Job title or keyword"
+          >
+        </div>
+        <div class="job-search__field job-search__field--location">
+          <label class="visually-hidden" for="jobs-search-location" data-i18n="search.locationLabel">City, country or area</label>
+          <input
+            class="job-search__input"
+            id="jobs-search-location"
+            type="search"
+            name="location"
+            placeholder="City, country or area"
+            value=""
+            autocomplete="address-level2"
+            data-i18n-placeholder="search.locationPlaceholder"
+            aria-label="City, country or area"
+          >
+        </div>
+        <div class="job-search__field job-search__field--workplace">
+          <label class="visually-hidden" for="jobs-search-workplace" data-i18n="search.workplaceLabel">Workplace</label>
+          <select class="job-search__select" id="jobs-search-workplace" name="workplace" aria-label="Workplace">
+            <option value="" data-i18n="search.workplace">Workplace</option>
+            <option value="Remote">Remote</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="On-site">On-site</option>
+          </select>
+        </div>
+        <div class="job-search__field job-search__field--type">
+          <label class="visually-hidden" for="jobs-search-type" data-i18n="search.jobTypeLabel">Job type</label>
+          <select class="job-search__select" id="jobs-search-type" name="type" aria-label="Job type">
+            <option value="" data-i18n="search.jobType">Job type</option>
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Internship">Internship</option>
+            <option value="Contract">Contract</option>
+            <option value="Freelance">Freelance</option>
+          </select>
+        </div>
+        <button class="job-search__submit" type="submit" data-i18n="search.submit">Search</button>
+      </form>
+    </section>
+
+    <div class="jobs-layout">
+      <aside class="jobs-filters" aria-label="Filter jobs">
+        <form class="filter-form" action="../jobs" method="get">
+          <input type="hidden" name="q" value="">
+          <input type="hidden" name="location" value="">
+          <input type="hidden" name="workplace" value="">
+          <input type="hidden" name="type" value="">
+          <input type="hidden" name="category" value="">
+
+          <fieldset class="filter-group">
+            <legend class="filter-group__title" data-i18n="filters.roles">Roles</legend>
+            <label class="filter-option">
+              <input class="filter-option__input" type="checkbox" name="role" value="Engineer">
+              <span class="filter-option__label">Engineer <span class="filter-option__count">(2)</span></span>
+            </label>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend class="filter-group__title" data-i18n="filters.jobTypes">Job types</legend>
+            <label class="filter-option">
+              <input class="filter-option__input" type="checkbox" name="typeFilter" value="Full-time">
+              <span class="filter-option__label">Full-time <span class="filter-option__count">(2)</span></span>
+            </label>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend class="filter-group__title" data-i18n="filters.remote">Remote</legend>
+            <label class="filter-option">
+              <input class="filter-option__input" type="checkbox" name="remoteOnly" value="true">
+              <span class="filter-option__label" data-i18n="filters.remoteOnly">Remote only</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend class="filter-group__title" data-i18n="filters.other">Other</legend>
+            <label class="filter-option">
+              <input class="filter-option__input" type="checkbox" name="featuredOnly" value="true">
+              <span class="filter-option__label" data-i18n="filters.featuredOnly">Only show paid jobs</span>
+            </label>
+          </fieldset>
+
+          <button class="filter-form__submit" type="submit" data-i18n="filters.apply">Apply filters</button>
+          <a class="filter-form__reset" href="../jobs" data-i18n="filters.reset">Reset filters</a>
+        </form>
+      </aside>
+
+      <section class="jobs-results" aria-labelledby="jobs-results-title">
+        <header class="jobs-results__header">
+          <h2 class="jobs-results__title" id="jobs-results-title">Showing: 2 jobs</h2>
+          <form class="jobs-results__sort" action="../jobs" method="get">
+            <input type="hidden" name="q" value="">
+            <input type="hidden" name="location" value="">
+            <input type="hidden" name="workplace" value="">
+            <input type="hidden" name="type" value="">
+            <input type="hidden" name="category" value="">
+
+            <label class="visually-hidden" for="jobs-sort">Sort jobs</label>
+            <select class="jobs-results__sort-select" id="jobs-sort" name="sort" aria-label="Sort jobs" data-auto-submit>
+              <option value="popular" selected>Most popular</option>
+              <option value="newest">Newest</option>
+              <option value="company">Company name</option>
+            </select>
+          </form>
+        </header>
+
+        <div class="job-list job-list--results">
+          
+            <article class="job-card">
+  <div class="job-card__header">
+    <img
+      class="job-card__logo"
+      src="../assets/images/company-cloudflare.png"
+      alt="Cloudflare logo"
+      loading="lazy"
+    >
+
+    <div class="job-card__company-info">
+      <h3 class="job-card__title">
+        Frontend Developer
+      </h3>
+
+      <p class="job-card__company">
+        Cloudflare
+      </p>
+    </div>
+  </div>
+
+  <div class="job-card__details">
+    <span class="job-card__location">
+      Remote
+    </span>
+
+    <span class="job-card__employment">
+      Full-time
+    </span>
+
+    
+      <span class="job-card__salary">
+        $3000 - $4500
+      </span>
+    
+  </div>
+
+  
+    <ul class="job-card__tags" aria-label="Required skills">
+      
+        <li class="job-card__tag">
+          JavaScript
+        </li>
+      
+        <li class="job-card__tag">
+          React
+        </li>
+      
+        <li class="job-card__tag">
+          TypeScript
+        </li>
+      
+    </ul>
+  
+
+  <div class="job-card__footer">
+    <a
+      href="../jobs/job-001"
+      class="job-card__link"
+      aria-label="View details for Frontend Developer"
+      data-i18n="jobs.viewDetails"
+    >
+      View details
+    </a>
+  </div>
+</article>
+          
+            <article class="job-card">
+  <div class="job-card__header">
+    <img
+      class="job-card__logo"
+      src="../assets/images/company-wise.png"
+      alt="Wise logo"
+      loading="lazy"
+    >
+
+    <div class="job-card__company-info">
+      <h3 class="job-card__title">
+        Backend Developer
+      </h3>
+
+      <p class="job-card__company">
+        Wise
+      </p>
+    </div>
+  </div>
+
+  <div class="job-card__details">
+    <span class="job-card__location">
+      London, United Kingdom
+    </span>
+
+    <span class="job-card__employment">
+      Full-time
+    </span>
+
+    
+      <span class="job-card__salary">
+        $4000 - $6000
+      </span>
+    
+  </div>
+
+  
+    <ul class="job-card__tags" aria-label="Required skills">
+      
+        <li class="job-card__tag">
+          Node.js
+        </li>
+      
+        <li class="job-card__tag">
+          Python
+        </li>
+      
+        <li class="job-card__tag">
+          SQL
+        </li>
+      
+    </ul>
+  
+
+  <div class="job-card__footer">
+    <a
+      href="../jobs/job-002"
+      class="job-card__link"
+      aria-label="View details for Backend Developer"
+      data-i18n="jobs.viewDetails"
+    >
+      View details
+    </a>
+  </div>
+</article>
+          
+        </div>
+
+        <nav class="pagination" aria-label="Job results pages">
+          <a class="pagination__link" href="?page=1" aria-label="First page">«</a>
+          <a class="pagination__link" href="?page=1" aria-label="Previous page">‹</a>
+          <a class="pagination__link pagination__link--active" href="?page=1" aria-current="page">1</a>
+          <a class="pagination__link" href="?page=1" aria-label="Next page">›</a>
+          <a class="pagination__link" href="?page=1" aria-label="Last page">»</a>
+        </nav>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="site-footer">
+  <picture class="site-footer__picture">
+    <source
+      media="(max-width: 48rem)"
+      srcset="../assets/images/footer-city-mobile.webp 720w"
+      sizes="100vw"
+    >
+    <img
+      class="site-footer__image"
+      src="../assets/images/footer-city.webp"
+      srcset="../assets/images/footer-city.webp 914w"
+      sizes="100vw"
+      alt=""
+      loading="lazy"
+    >
+  </picture>
+
+  <div class="site-footer__content">
+    <nav class="footer-navigation" aria-label="Footer navigation">
+      <section class="footer-navigation__group" aria-labelledby="footer-job-seekers">
+        <h2 class="footer-navigation__title" id="footer-job-seekers" data-i18n="footer.jobSeekers">Job seekers</h2>
+        <ul class="footer-navigation__list">
+          <li><a href="../jobs" data-i18n="footer.browseJobs">Browse jobs</a></li>
+          <li><a href="../jobs" data-i18n="footer.browseCompanies">Browse companies</a></li>
+          <li><a href="../jobs" data-i18n="footer.browseMarkets">Browse markets</a></li>
+          <li><a href="../jobs" data-i18n="footer.salaries">Salaries</a></li>
+          <li><a href="../jobs" data-i18n="footer.hiringTrends">Hiring trends</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-navigation__group" id="footer-employers" aria-labelledby="footer-employers-title">
+        <h2 class="footer-navigation__title" id="footer-employers-title" data-i18n="footer.employers">Employers</h2>
+        <ul class="footer-navigation__list">
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.postJob">Post a job</a></li>
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.pricing">Pricing</a></li>
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.advertise">Advertise</a></li>
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.investorList">Investor list</a></li>
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.startupDeals">Startup deals</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-navigation__group" aria-labelledby="footer-browse-title">
+        <h2 class="footer-navigation__title" id="footer-browse-title" data-i18n="footer.browse">Browse</h2>
+        <ul class="footer-navigation__list">
+          <li><a href="../jobs?workplace=Remote" data-i18n="footer.remoteJobs">Remote jobs</a></li>
+          <li><a href="../jobs?type=Part-time" data-i18n="footer.partTimeJobs">Part-time jobs</a></li>
+          <li><a href="../jobs?type=Internship" data-i18n="footer.internships">Internships</a></li>
+          <li><a href="../jobs" data-i18n="footer.collections">Collections</a></li>
+          <li><a href="../jobs" data-i18n="footer.jobBoards">Job boards</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-navigation__group" aria-labelledby="footer-company-title">
+        <h2 class="footer-navigation__title" id="footer-company-title" data-i18n="footer.company">Company</h2>
+        <ul class="footer-navigation__list">
+          <li><a href="../#site-footer" data-i18n="footer.about">About</a></li>
+          <li><a href="../#site-footer" data-i18n="footer.blog">Blog</a></li>
+          <li><a href="../#footer-contact" data-i18n="footer.contact">Contact</a></li>
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.partners">Partners</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-navigation__group footer-navigation__group--contact" id="footer-contact" aria-labelledby="footer-contact-title">
+        <h2 class="footer-navigation__title" id="footer-contact-title" data-i18n="footer.contact">Contact</h2>
+        <address class="footer-contact">
+          <p><span data-i18n="footer.emailLabel">E-mail:</span> <a href="mailto:ouramazing@mail.com">ouramazing@mail.com</a></p>
+          <p><span data-i18n="footer.phoneLabel">Contact number:</span> <a href="tel:+1234567890">+1234567890</a></p>
+          <p><a href="mailto:ouramazing@mail.com" data-i18n="footer.support">Contact support</a></p>
+        </address>
+      </section>
+    </nav>
+  </div>
+
+  <div class="site-footer__bottom">
+    <a class="site-footer__brand" href="../" aria-label="Heuristic home">Heuristic</a>
+    <p class="site-footer__copyright">© 2026 All Rights Reserved</p>
+    <nav class="social-links" aria-label="Social media">
+      <a class="social-links__link" href="https://twitter.com/" aria-label="Heuristic on Twitter">Twitter</a>
+      <a class="social-links__link" href="https://www.instagram.com/" aria-label="Heuristic on Instagram">Instagram</a>
+      <a class="social-links__link" href="https://www.facebook.com/" aria-label="Heuristic on Facebook">Facebook</a>
+      <a class="social-links__link" href="https://www.linkedin.com/" aria-label="Heuristic on LinkedIn">Linkedin</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

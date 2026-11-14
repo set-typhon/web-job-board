@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en" data-locale="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore technology jobs at ambitious startups with Heuristic.">
+  <title>Heuristic — Find your next startup job</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <script src="./js/site.js" defer></script>
+</head>
+<body class="page page--home">
+  <header class="site-header" data-i18n="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__brand" href="./" aria-label="Heuristic home" data-i18n="brand.name">Heuristic</a>
+
+    <button
+      class="site-header__menu-toggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-controls="primary-navigation"
+      aria-expanded="false"
+      data-menu-toggle
+    >
+      <span class="site-header__menu-icon" aria-hidden="true">☰</span>
+    </button>
+
+    <nav class="site-nav" id="primary-navigation" aria-label="Main navigation" data-primary-nav>
+      <ul class="site-nav__list">
+        <li class="site-nav__item">
+          <a class="site-nav__link" href="./jobs" data-i18n="navigation.jobs">Jobs</a>
+        </li>
+        <li class="site-nav__item"><a class="site-nav__link" href="./#footer-employers" data-i18n="navigation.advertise">Advertise</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="./#footer-contact" data-i18n="navigation.contact">Contact</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="./#footer-contact" data-i18n="navigation.help">Help</a></li>
+        <li class="site-nav__item"><a class="site-nav__link site-nav__link--accent" href="mailto:ouramazing@mail.com" data-i18n="navigation.signIn">Sign in</a></li>
+        <li class="site-nav__item"><a class="site-nav__link site-nav__link--button" href="./jobs" data-i18n="navigation.getStarted">Get started</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="home-page" id="main-content">
+    <section class="home-hero" aria-labelledby="home-hero-title">
+      <picture class="home-hero__picture">
+        <source
+          media="(max-width: 48rem)"
+          srcset="./assets/images/hero-office-mobile.webp 480w"
+          sizes="100vw"
+        >
+        <img
+          class="home-hero__image"
+          src="./assets/images/hero-office.webp"
+          srcset="./assets/images/hero-office.webp 612w"
+          sizes="(max-width: 48rem) 100vw, 50vw"
+          alt="Colleagues discussing a project around a laptop in a bright office"
+          fetchpriority="high"
+        >
+      </picture>
+      <article class="home-hero__content">
+        <h1 class="home-hero__title" id="home-hero-title" data-i18n="home.heroTitle">Your future is bright with Heuristic</h1>
+        <p class="home-hero__description" data-i18n="home.heroDescription">Over the last few decades, tech startups have achieved unbelievable things, changing the lives of everyone involved as well as millions of people across the globe in the process. At Heuristic, we think startups are one of the greatest forms of giving people true meaning in their lives while making the world a better place. We see a world where people get to work on things that they are passionate about while solving real and challenging problems. Our mission is to help people find truly meaningful work where they can have an impact and take part in building something new for the group.</p>
+      </article>
+    </section>
+
+    <section class="home-search-section" aria-labelledby="home-search-title">
+      <div class="home-search-section__intro">
+        <h2 class="home-search-section__title" id="home-search-title" data-i18n="home.searchTitle">Join a startup</h2>
+        <p class="home-search-section__subtitle" data-i18n="home.searchSubtitle">Discover 1266 open positions</p>
+      </div>
+      <form class="job-search" action="./jobs" method="get" role="search" aria-label="Search startup jobs">
+        <div class="job-search__field job-search__field--keyword">
+          <label class="visually-hidden" for="home-search-keyword" data-i18n="search.keywordLabel">Job title or keyword</label>
+          <input
+            class="job-search__input"
+            id="home-search-keyword"
+            type="search"
+            name="q"
+            placeholder="Job title or keyword"
+            value=""
+            autocomplete="off"
+            data-i18n-placeholder="search.keywordPlaceholder"
+            aria-label="Job title or keyword"
+          >
+        </div>
+        <div class="job-search__field job-search__field--location">
+          <label class="visually-hidden" for="home-search-location" data-i18n="search.locationLabel">City, country or area</label>
+          <input
+            class="job-search__input"
+            id="home-search-location"
+            type="search"
+            name="location"
+            placeholder="City, country or area"
+            value=""
+            autocomplete="address-level2"
+            data-i18n-placeholder="search.locationPlaceholder"
+            aria-label="City, country or area"
+          >
+        </div>
+        <div class="job-search__field job-search__field--workplace">
+          <label class="visually-hidden" for="home-search-workplace" data-i18n="search.workplaceLabel">Workplace</label>
+          <select class="job-search__select" id="home-search-workplace" name="workplace" aria-label="Workplace">
+            <option value="" data-i18n="search.workplace">Workplace</option>
+            <option value="Remote">Remote</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="On-site">On-site</option>
+          </select>
+        </div>
+        <div class="job-search__field job-search__field--type">
+          <label class="visually-hidden" for="home-search-type" data-i18n="search.jobTypeLabel">Job type</label>
+          <select class="job-search__select" id="home-search-type" name="type" aria-label="Job type">
+            <option value="" data-i18n="search.jobType">Job type</option>
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Internship">Internship</option>
+            <option value="Contract">Contract</option>
+            <option value="Freelance">Freelance</option>
+          </select>
+        </div>
+        <button class="job-search__submit" type="submit" data-i18n="search.submit">Search</button>
+      </form>
+    </section>
+
+    <section class="home-categories" aria-labelledby="home-categories-title">
+      <header class="section-heading">
+        <h2 class="section-heading__title" id="home-categories-title" data-i18n="home.categoriesTitle">Explore by category</h2>
+      </header>
+      <div class="category-grid">
+        <article class="category-card">
+          <h3 class="category-card__title"><a href="./jobs?category=SaaS"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.saas">SaaS</span></a></h3>
+          <p class="category-card__description">Sample category description.</p>
+        </article>
+        <article class="category-card">
+          <h3 class="category-card__title"><a href="./jobs?category=Artificial%20Intelligence"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.ai">Artificial Intelligence</span></a></h3>
+          <p class="category-card__description">Sample category description.</p>
+        </article>
+        <article class="category-card">
+          <h3 class="category-card__title"><a href="./jobs?category=Enterprise%20Software"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.enterprise">Enterprise Software</span></a></h3>
+          <p class="category-card__description">Sample category description.</p>
+        </article>
+        <article class="category-card">
+          <h3 class="category-card__title"><a href="./jobs?category=E-commerce"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.ecommerce">E-commerce</span></a></h3>
+          <p class="category-card__description">Sample category description.</p>
+        </article>
+        <article class="category-card">
+          <h3 class="category-card__title"><a href="./jobs?category=Fintech"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.fintech">Fintech</span></a></h3>
+          <p class="category-card__description">Sample category description.</p>
+        </article>
+        <article class="category-card">
+          <h3 class="category-card__title"><a href="./jobs?category=Manufacturing"><span class="category-card__icon" aria-hidden="true">*</span><span data-i18n="category.manufacturing">Manufacturing</span></a></h3>
+          <p class="category-card__description">Sample category description.</p>
+        </article>
+      </div>
+      <a class="home-categories__more" href="./jobs" data-i18n="home.exploreMore">Explore more</a>
+    </section>
+
+    <section class="home-featured-jobs" aria-labelledby="home-featured-title">
+      <header class="section-heading">
+        <h2 class="section-heading__title" id="home-featured-title" data-i18n="home.featuredTitle">Discover the most relevant positions</h2>
+      </header>
+      <div class="job-list job-list--featured">
+        
+          <article class="job-card">
+  <div class="job-card__header">
+    <img
+      class="job-card__logo"
+      src="./assets/images/company-cloudflare.png"
+      alt="Cloudflare logo"
+      loading="lazy"
+    >
+
+    <div class="job-card__company-info">
+      <h3 class="job-card__title">
+        Frontend Developer
+      </h3>
+
+      <p class="job-card__company">
+        Cloudflare
+      </p>
+    </div>
+  </div>
+
+  <div class="job-card__details">
+    <span class="job-card__location">
+      Remote
+    </span>
+
+    <span class="job-card__employment">
+      Full-time
+    </span>
+
+    
+      <span class="job-card__salary">
+        $3000 - $4500
+      </span>
+    
+  </div>
+
+  
+    <ul class="job-card__tags" aria-label="Required skills">
+      
+        <li class="job-card__tag">
+          JavaScript
+        </li>
+      
+        <li class="job-card__tag">
+          React
+        </li>
+      
+        <li class="job-card__tag">
+          TypeScript
+        </li>
+      
+    </ul>
+  
+
+  <div class="job-card__footer">
+    <a
+      href="./jobs/job-001"
+      class="job-card__link"
+      aria-label="View details for Frontend Developer"
+      data-i18n="jobs.viewDetails"
+    >
+      View details
+    </a>
+  </div>
+</article>
+        
+          <article class="job-card">
+  <div class="job-card__header">
+    <img
+      class="job-card__logo"
+      src="./assets/images/company-wise.png"
+      alt="Wise logo"
+      loading="lazy"
+    >
+
+    <div class="job-card__company-info">
+      <h3 class="job-card__title">
+        Backend Developer
+      </h3>
+
+      <p class="job-card__company">
+        Wise
+      </p>
+    </div>
+  </div>
+
+  <div class="job-card__details">
+    <span class="job-card__location">
+      London, United Kingdom
+    </span>
+
+    <span class="job-card__employment">
+      Full-time
+    </span>
+
+    
+      <span class="job-card__salary">
+        $4000 - $6000
+      </span>
+    
+  </div>
+
+  
+    <ul class="job-card__tags" aria-label="Required skills">
+      
+        <li class="job-card__tag">
+          Node.js
+        </li>
+      
+        <li class="job-card__tag">
+          Python
+        </li>
+      
+        <li class="job-card__tag">
+          SQL
+        </li>
+      
+    </ul>
+  
+
+  <div class="job-card__footer">
+    <a
+      href="./jobs/job-002"
+      class="job-card__link"
+      aria-label="View details for Backend Developer"
+      data-i18n="jobs.viewDetails"
+    >
+      View details
+    </a>
+  </div>
+</article>
+        
+      </div>
+      <a class="home-featured-jobs__more" href="./jobs" data-i18n="home.exploreMore">Explore more</a>
+    </section>
+
+    <section class="home-investors" aria-labelledby="home-investors-title">
+      <aside class="home-investors__content" aria-label="Investor connections">
+        <h2 class="home-investors__title" id="home-investors-title" data-i18n="home.investorsTitle">Connect to leading investors</h2>
+        <p class="home-investors__description">Unsure which 'seed' opportunity is right for you? Use our investor matching tool to help you on to your next step. Be AWARE - that your best aims to see highs on the funding journey, providing you with an overview of some of the service funding sources, which also can be reached through an in-depth plan and venture making is easier for you to navigate through the various possibilities. However, it is neither advice nor assistance to show an exhaustive and complete list nor advising an investor.</p>
+        <a class="home-investors__link" href="mailto:ouramazing@mail.com">Find investors</a>
+      </aside>
+      <figure class="home-investors__visual">
+        <picture>
+          <source media="(max-width: 48rem)" srcset="./assets/images/investor-dashboard-mobile.webp 720w" sizes="100vw">
+          <img
+            class="home-investors__image"
+            src="./assets/images/investor-dashboard.webp"
+            srcset="./assets/images/investor-dashboard.webp 1000w"
+            sizes="(max-width: 48rem) 100vw, 40vw"
+            alt="Illustration of an investment dashboard with income, utilities, and revenue indicators"
+            loading="lazy"
+          >
+        </picture>
+        <figcaption class="visually-hidden">Investor dashboard illustration</figcaption>
+      </figure>
+    </section>
+
+    <section class="home-benefits" aria-labelledby="home-benefits-title">
+      <header class="section-heading">
+        <h2 class="section-heading__title" id="home-benefits-title" data-i18n="home.benefitsTitle">Why Choose Us?</h2>
+      </header>
+      <div class="benefit-grid">
+        <article class="benefit-card">
+          <span class="benefit-card__icon" aria-hidden="true">⌂</span>
+          <h3 class="benefit-card__title" data-i18n="home.benefitPotential">Potential</h3>
+          <p class="benefit-card__description">Whether you are looking for a job or to advertise your startup, you will work through essential steps and projects.</p>
+        </article>
+        <article class="benefit-card">
+          <span class="benefit-card__icon" aria-hidden="true">⚑</span>
+          <h3 class="benefit-card__title" data-i18n="home.benefitDesign">Design</h3>
+          <p class="benefit-card__description">Our system is designed solely to bring you success in your career or project.</p>
+        </article>
+        <article class="benefit-card">
+          <span class="benefit-card__icon" aria-hidden="true">ⓧ</span>
+          <h3 class="benefit-card__title" data-i18n="home.benefitMarketing">Marketing</h3>
+          <p class="benefit-card__description">Strong consultation, professional photos and a sophisticated digital marketing plan are necessary for every lasting modern-day business.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer">
+  <picture class="site-footer__picture">
+    <source
+      media="(max-width: 48rem)"
+      srcset="./assets/images/footer-city-mobile.webp 720w"
+      sizes="100vw"
+    >
+    <img
+      class="site-footer__image"
+      src="./assets/images/footer-city.webp"
+      srcset="./assets/images/footer-city.webp 914w"
+      sizes="100vw"
+      alt=""
+      loading="lazy"
+    >
+  </picture>
+
+  <div class="site-footer__content">
+    <nav class="footer-navigation" aria-label="Footer navigation">
+      <section class="footer-navigation__group" aria-labelledby="footer-job-seekers">
+        <h2 class="footer-navigation__title" id="footer-job-seekers" data-i18n="footer.jobSeekers">Job seekers</h2>
+        <ul class="footer-navigation__list">
+          <li><a href="./jobs" data-i18n="footer.browseJobs">Browse jobs</a></li>
+          <li><a href="./jobs" data-i18n="footer.browseCompanies">Browse companies</a></li>
+          <li><a href="./jobs" data-i18n="footer.browseMarkets">Browse markets</a></li>
+          <li><a href="./jobs" data-i18n="footer.salaries">Salaries</a></li>
+          <li><a href="./jobs" data-i18n="footer.hiringTrends">Hiring trends</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-navigation__group" id="footer-employers" aria-labelledby="footer-employers-title">
+        <h2 class="footer-navigation__title" id="footer-employers-title" data-i18n="footer.employers">Employers</h2>
+        <ul class="footer-navigation__list">
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.postJob">Post a job</a></li>
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.pricing">Pricing</a></li>
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.advertise">Advertise</a></li>
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.investorList">Investor list</a></li>
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.startupDeals">Startup deals</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-navigation__group" aria-labelledby="footer-browse-title">
+        <h2 class="footer-navigation__title" id="footer-browse-title" data-i18n="footer.browse">Browse</h2>
+        <ul class="footer-navigation__list">
+          <li><a href="./jobs?workplace=Remote" data-i18n="footer.remoteJobs">Remote jobs</a></li>
+          <li><a href="./jobs?type=Part-time" data-i18n="footer.partTimeJobs">Part-time jobs</a></li>
+          <li><a href="./jobs?type=Internship" data-i18n="footer.internships">Internships</a></li>
+          <li><a href="./jobs" data-i18n="footer.collections">Collections</a></li>
+          <li><a href="./jobs" data-i18n="footer.jobBoards">Job boards</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-navigation__group" aria-labelledby="footer-company-title">
+        <h2 class="footer-navigation__title" id="footer-company-title" data-i18n="footer.company">Company</h2>
+        <ul class="footer-navigation__list">
+          <li><a href="./#site-footer" data-i18n="footer.about">About</a></li>
+          <li><a href="./#site-footer" data-i18n="footer.blog">Blog</a></li>
+          <li><a href="./#footer-contact" data-i18n="footer.contact">Contact</a></li>
+          <li><a href="mailto:ouramazing@mail.com" data-i18n="footer.partners">Partners</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-navigation__group footer-navigation__group--contact" id="footer-contact" aria-labelledby="footer-contact-title">
+        <h2 class="footer-navigation__title" id="footer-contact-title" data-i18n="footer.contact">Contact</h2>
+        <address class="footer-contact">
+          <p><span data-i18n="footer.emailLabel">E-mail:</span> <a href="mailto:ouramazing@mail.com">ouramazing@mail.com</a></p>
+          <p><span data-i18n="footer.phoneLabel">Contact number:</span> <a href="tel:+1234567890">+1234567890</a></p>
+          <p><a href="mailto:ouramazing@mail.com" data-i18n="footer.support">Contact support</a></p>
+        </address>
+      </section>
+    </nav>
+  </div>
+
+  <div class="site-footer__bottom">
+    <a class="site-footer__brand" href="./" aria-label="Heuristic home">Heuristic</a>
+    <p class="site-footer__copyright">© 2026 All Rights Reserved</p>
+    <nav class="social-links" aria-label="Social media">
+      <a class="social-links__link" href="https://twitter.com/" aria-label="Heuristic on Twitter">Twitter</a>
+      <a class="social-links__link" href="https://www.instagram.com/" aria-label="Heuristic on Instagram">Instagram</a>
+      <a class="social-links__link" href="https://www.facebook.com/" aria-label="Heuristic on Facebook">Facebook</a>
+      <a class="social-links__link" href="https://www.linkedin.com/" aria-label="Heuristic on LinkedIn">Linkedin</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
