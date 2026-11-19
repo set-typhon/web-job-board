@@ -1,0 +1,101 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.job-details-page {
+  @include make-container();
+  padding-top: rem(28);
+}
+
+.job-details__success {
+  padding: rem(12) rem(16);
+  margin-bottom: rem(20);
+  background-color: $color-primary-soft;
+  color: $color-primary;
+  border-radius: $radius-sm;
+  font-weight: 600;
+}
+
+.job-details-layout {
+  @include grid(1, rem(32));
+
+  @include respond-up('desktop') {
+    grid-template-columns: 1fr rem(340);
+    align-items: start;
+  }
+}
+
+.job-details {
+  @include flex(column, flex-start, stretch, rem(24));
+
+  &__header {
+    @include flex(row, flex-start, center, rem(16));
+  }
+
+  &__company-logo {
+    width: rem(64);
+    height: rem(64);
+    border-radius: $radius-md;
+    object-fit: contain;
+  }
+
+  &__meta {
+    margin-top: rem(6);
+    @include flex(row, flex-start, center, rem(8));
+    flex-wrap: wrap;
+    font-size: rem(14);
+    color: $color-text-muted;
+  }
+
+  &__description,
+  &__equal-opportunity {
+    font-size: rem(15);
+    line-height: 1.65;
+    color: $color-text-muted;
+  }
+
+  &__section-title {
+    margin-bottom: rem(10);
+  }
+
+  &__list {
+    list-style: disc;
+    padding-left: rem(20);
+    @include flex(column, flex-start, stretch, rem(8));
+    font-size: rem(15);
+    color: $color-text-muted;
+  }
+}
+
+.job-overview__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: rem(14);
+
+  th, td {
+    padding: rem(10) rem(12);
+    border-bottom: 1px solid $color-border;
+    text-align: left;
+  }
+
+  th {
+    width: 35%;
+    color: $color-text-muted;
+    font-weight: 600;
+  }
+}
+
+.job-details-sidebar {
+  @include flex(column, flex-start, stretch, rem(16));
+
+  &__actions {
+    @include flex(column, flex-start, stretch, rem(10));
+  }
+
+  &__report {
+    text-align: center;
+    font-size: rem(13);
+    color: $color-text-muted;
+    &:hover { color: $color-primary; }
+  }
+}

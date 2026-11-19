@@ -1,43 +1,46 @@
-<article class="job-card">
-  <header class="job-card__header">
+<article
+  class="job-card"
+  data-id="<%= job.id %>"
+  data-department="<%= job.department || '' %>"
+  data-workplace="<%= job.workplace || '' %>"
+  data-type="<%= job.employmentType || '' %>"
+  data-salary="<%= job.salary || '' %>"
+  data-tags="<%= Array.isArray(job.tags) ? job.tags.join(',') : '' %>"
+>
+  <div class="job-card__main">
     <img
       class="job-card__logo"
-      src="<%= job.company.logo.startsWith('http') || job.company.logo.startsWith('/') || job.company.logo.startsWith('.') ? job.company.logo : basePath + '/' + job.company.logo %>"
+      src="<%= basePath %>/<%= job.company.logo %>"
       alt="<%= job.company.name %> logo"
-      width="48"
-      height="48"
+      width="52"
+      height="52"
       loading="lazy"
     >
-    <div class="job-card__company-info">
-      <h3 class="job-card__title"><%= job.title %></h3>
-      <p class="job-card__company"><%= job.company.name %></p>
+    <div class="job-card__info">
+      <h3 class="job-card__title">
+        <a href="<%= basePath %>/jobs/<%= job.id %>"><%= job.title %></a>
+      </h3>
+      <p class="job-card__meta">
+        <span><%= job.company.name %></span>
+        <span class="job-card__dot" aria-hidden="true">&bull;</span>
+        <span><%= job.location %></span>
+        <span class="job-card__dot" aria-hidden="true">&bull;</span>
+        <span><%= job.employmentType %></span>
+      </p>
     </div>
-  </header>
-
-  <div class="job-card__details">
-    <span class="job-card__location"><%= job.location %></span>
-    <span class="job-card__employment"><%= job.employmentType %></span>
-    <% if (job.salary) { %>
-      <span class="job-card__salary"><%= job.salary %></span>
-    <% } %>
   </div>
 
-  <% if (job.tags && job.tags.length > 0) { %>
-    <ul class="job-card__tags" aria-label="Required skills">
-      <% job.tags.forEach(tag => { %>
-        <li class="job-card__tag"><%= tag %></li>
-      <% }) %>
-    </ul>
-  <% } %>
-
-  <footer class="job-card__footer">
-    <a
-      href="<%= basePath %>/jobs/<%= encodeURIComponent(job.id) %>"
-      class="job-card__link"
-      aria-label="View details for <%= job.title %>"
-      data-i18n="jobs.viewDetails"
+  <div class="job-card__actions">
+    <button
+      class="job-card__save"
+      type="button"
+      aria-label="Save job"
+      aria-pressed="false"
     >
-      View details
-    </a>
-  </footer>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+      </svg>
+    </button>
+    <a class="job-card__apply" href="<%= basePath %>/jobs/<%= job.id %>">Apply</a>
+  </div>
 </article>

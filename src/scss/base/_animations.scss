@@ -1,0 +1,72 @@
+@use 'sass:map';
+@use '../abstracts/variables' as *;
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.u-animate-appear { animation: appear 0.35s ease forwards; }
+.u-animate-fade { animation: fade 0.3s ease forwards; }
+.u-animate-slide { animation: slide 0.4s ease forwards; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@each $key, $val in $spacers {
+  .u-mt-#{$key} { margin-top: $val; }
+  .u-mb-#{$key} { margin-bottom: $val; }
+  .u-p-#{$key} { padding: $val; }
+}
+
+@media print {
+  .site-header,
+  .site-footer,
+  .jobs-filters,
+  .job-details-sidebar__actions,
+  .job-details-sidebar__report,
+  .pagination,
+  .lang-switcher {
+    display: none !important;
+  }
+
+  body {
+    color: #000;
+    background: #fff;
+  }
+
+  .job-details-layout {
+    display: block;
+  }
+}

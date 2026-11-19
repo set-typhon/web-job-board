@@ -1,0 +1,78 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.jobs-search {
+  padding-block: rem(64);
+  background-color: $color-primary; 
+  text-align: center;
+
+  &__title {
+    color: #111827; 
+    margin-bottom: rem(8);
+  }
+
+  &__subtitle {
+    color: #374151; 
+    margin-bottom: rem(32);
+    font-size: rem(16);
+  }
+}
+
+.jobs-layout {
+  @include make-container();
+  @include grid(1, rem(24));
+  padding-top: rem(32);
+
+  @include respond-up('desktop') {
+    grid-template-columns: rem(260) 1fr;
+    gap: rem(32);
+    align-items: start;
+  }
+}
+
+.jobs-filters {
+  @extend %card-surface;
+  padding: rem(20);
+}
+
+.filter-form {
+  @include flex(column, flex-start, stretch, rem(18));
+}
+
+.filter-group {
+  border: none;
+  padding: 0;
+  margin: 0;
+  @include flex(column, flex-start, stretch, rem(8));
+
+  &__title {
+    font-weight: 700;
+    font-size: rem(14);
+    margin-bottom: rem(6);
+  }
+}
+
+.filter-form__reset {
+  text-align: center;
+  font-size: rem(13);
+  color: $color-text-muted;
+  &:hover { color: $color-primary; }
+}
+
+.jobs-results {
+  &__header {
+    @include flex(row, space-between, center, rem(12));
+    flex-wrap: wrap;
+    margin-bottom: rem(16);
+  }
+
+  &__title {
+    font-size: rem(18);
+  }
+
+  &__sort-select {
+    @extend %input-control;
+    width: auto;
+  }
+}

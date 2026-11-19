@@ -1,0 +1,107 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'variables' as *;
+@use 'functions' as *;
+
+@mixin respond-up($bp) {
+  $val: map.get($breakpoints, $bp);
+  @if $val {
+    @media (min-width: $val) { @content; }
+  } @else {
+    @media (min-width: $bp) { @content; }
+  }
+}
+
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  @if $gap != 0 { gap: $gap; }
+}
+
+@mixin grid($cols: 1, $gap: $grid-gutter) {
+  display: grid;
+  grid-template-columns: repeat($cols, minmax(0, 1fr));
+  gap: $gap;
+}
+
+@mixin typography($size, $weight: 400, $line-height: 1.5, $color: null) {
+  font-size: rem($size);
+  font-weight: $weight;
+  line-height: $line-height;
+  @if $color { color: $color; }
+}
+
+@mixin make-container($max-width: $container-max, $gutter: $grid-gutter) {
+  width: 100%;
+  max-width: $max-width;
+  margin-inline: auto;
+  padding-inline: math.div($gutter, 2);
+}
+
+@mixin make-row($gutter: $grid-gutter) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: math.div($gutter, -2);
+}
+
+@mixin make-col($size, $columns: $grid-columns, $gutter: $grid-gutter) {
+  flex: 0 0 math.percentage(math.div($size, $columns));
+  max-width: math.percentage(math.div($size, $columns));
+  padding-inline: math.div($gutter, 2);
+}
+
+
+%card-surface {
+  background-color: $color-bg;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    border-color: tint($color-primary, 30%);
+    box-shadow: 0 rem(4) rem(12) rgba(0, 0, 0, 0.06);
+  }
+}
+
+%btn-primary {
+  @include flex(row, center, center, rem(8));
+  padding: rem(10) rem(24);
+  background-color: $color-primary;
+  color: #ffffff !important; 
+  border: 1px solid $color-primary;
+  border-radius: $radius-sm;
+  font-weight: 600;
+  font-size: rem(14);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $color-primary-hover;
+    color: #ffffff !important;
+  }
+}
+
+
+%input-control {
+  width: 100%;
+  padding: rem(10) rem(14);
+  font-family: inherit;
+  font-size: rem(14);
+  color: $color-text;
+  background-color: $color-bg;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 rem(3) rgba(25, 103, 210, 0.15);
+  }
+  
+  $shadow-card: 0 rem(2) rem(4) rgba(0, 0, 0, 0.04); 
+}

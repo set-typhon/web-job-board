@@ -1,0 +1,22 @@
+@use '../abstracts/mixins' as *;
+
+.l-container {
+  @include make-container();
+}
+
+.l-row {
+  @include make-row();
+}
+
+.l-col-12 { @include make-col(12); }
+
+.l-col-6 {
+  @include make-col(12);
+  @include respond-up('tablet') { @include make-col(6); }
+}
+
+.l-col-4 {
+  @include make-col(12);
+  @include respond-up('tablet') { @include make-col(6); }
+  @include respond-up('desktop') { @include make-col(4); }
+}

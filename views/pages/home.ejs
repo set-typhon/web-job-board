@@ -2,6 +2,9 @@
 <html lang="en" data-locale="en">
 <head>
   <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Explore technology jobs at ambitious startups with Heuristic.">
   <title>Heuristic — Find your next startup job</title>
@@ -29,7 +32,11 @@
         >
       </picture>
       <article class="home-hero__content">
-        <h1 class="home-hero__title" id="home-hero-title" data-i18n="home.heroTitle">Your future is bright with Heuristic</h1>
+        <h1 class="home-hero__title">
+  <span class="hero-line">Your future is</span>
+  <span class="hero-line">bright with</span>
+  <span class="hero-brand">Heuristic</span>
+</h1>
         <p class="home-hero__description" data-i18n="home.heroDescription">Over the last few decades, tech startups have achieved unbelievable things, changing the lives of everyone involved as well as millions of people across the globe in the process. At Heuristic, we think startups are one of the greatest forms of giving people true meaning in their lives while making the world a better place. We see a world where people get to work on things that they are passionate about while solving real and challenging problems. Our mission is to help people find truly meaningful work where they can have an impact and take part in building something new for the group.</p>
       </article>
     </section>
@@ -104,7 +111,7 @@
           <span data-i18n="category.saas">SaaS</span>
         </a>
       </h3>
-      <p class="category-card__description">Sample category description.</p>
+      <p class="category-card__description">SaaS provides software applications over the Internet on a subscription basis, eliminating the need for local installation and management. It is commonly used in customer relationship management (CRM), project management, and collaboration tools.</p>
     </article>
 
     <article class="category-card">
@@ -114,7 +121,7 @@
           <span data-i18n="category.ai">Artificial Intelligence</span>
         </a>
       </h3>
-      <p class="category-card__description">Sample category description.</p>
+      <p class="category-card__description">Artificial intelligence (AI) job descriptions vary. Yet, all AI professionals work with data to develop highly advanced systems and improve operations. Discover more about AI job descriptions to see if one matches your goals.</p>
     </article>
 
     <article class="category-card">
@@ -124,7 +131,7 @@
           <span data-i18n="category.enterprise">Enterprise Software</span>
         </a>
       </h3>
-      <p class="category-card__description">Sample category description.</p>
+      <p class="category-card__description">Enterprise software, or enterprise application software, is computer software used by organizations rather than individual users. Common types of enterprise software include contact centre software, business intelligence, enterprise communication.</p>
     </article>
 
     <article class="category-card">
@@ -134,7 +141,7 @@
           <span data-i18n="category.ecommerce">E-commerce</span>
         </a>
       </h3>
-      <p class="category-card__description">Sample category description.</p>
+      <p class="category-card__description">E-commerce is the digital process of buying and selling goods and services over the Internet using electronic platforms. Enables online buying and selling Uses websites, apps, and digital platforms</p>
     </article>
 
     <article class="category-card">
@@ -144,7 +151,7 @@
           <span data-i18n="category.fintech">Fintech</span>
         </a>
       </h3>
-      <p class="category-card__description">Sample category description.</p>
+      <p class="category-card__description">Fintech refers to digital tools and technology used to deliver financial products and services. Common fintech categories include digital banking, payments, investing services, and online lending.</p>
     </article>
 
     <article class="category-card">
@@ -154,7 +161,7 @@
           <span data-i18n="category.manufacturing">Manufacturing</span>
         </a>
       </h3>
-      <p class="category-card__description">Sample category description.</p>
+      <p class="category-card__description">Digital transformation drives manufacturing success. According to recent survey data, 80% of manufacturing companies surveyed implement new technologies for supply chain optimization, business intelligence and production line planning.</p>
     </article>
   </div>
   <a class="home-categories__more" href="<%= basePath %>/jobs" data-i18n="home.exploreMore">Explore more</a>
@@ -194,28 +201,25 @@
       </figure>
     </section>
 
-    <section class="home-benefits" aria-labelledby="home-benefits-title">
-      <header class="section-heading">
-        <h2 class="section-heading__title" id="home-benefits-title" data-i18n="home.benefitsTitle">Why Choose Us?</h2>
-      </header>
-      <div class="benefit-grid">
-        <article class="benefit-card">
-          <span class="benefit-card__icon" aria-hidden="true">⌂</span>
-          <h3 class="benefit-card__title" data-i18n="home.benefitPotential">Potential</h3>
-          <p class="benefit-card__description">Whether you are looking for a job or to advertise your startup, you will work through essential steps and projects.</p>
-        </article>
-        <article class="benefit-card">
-          <span class="benefit-card__icon" aria-hidden="true">⚑</span>
-          <h3 class="benefit-card__title" data-i18n="home.benefitDesign">Design</h3>
-          <p class="benefit-card__description">Our system is designed solely to bring you success in your career or project.</p>
-        </article>
-        <article class="benefit-card">
-          <span class="benefit-card__icon" aria-hidden="true">ⓧ</span>
-          <h3 class="benefit-card__title" data-i18n="home.benefitMarketing">Marketing</h3>
-          <p class="benefit-card__description">Strong consultation, professional photos and a sophisticated digital marketing plan are necessary for every lasting modern-day business.</p>
-        </article>
-      </div>
-    </section>
+   <div class="benefit-grid">
+  <article class="benefit-card">
+    <img class="benefit-card__icon" src="<%= basePath %>/assets/images/icon-potential.png" alt="" aria-hidden="true" loading="lazy">
+    <h3 class="benefit-card__title" data-i18n="home.benefitPotential">Potential</h3>
+    <p class="benefit-card__description">Whether you are looking for a job or to advertise your startup, you will work through essential steps and projects.</p>
+  </article>
+
+  <article class="benefit-card">
+    <img class="benefit-card__icon" src="<%= basePath %>/assets/images/icon-design.png" alt="" aria-hidden="true" loading="lazy">
+    <h3 class="benefit-card__title" data-i18n="home.benefitDesign">Design</h3>
+    <p class="benefit-card__description">Our system is designed solely to bring you success in your career or project.</p>
+  </article>
+
+  <article class="benefit-card">
+    <img class="benefit-card__icon" src="<%= basePath %>/assets/images/icon-marketing.png" alt="" aria-hidden="true" loading="lazy">
+    <h3 class="benefit-card__title" data-i18n="home.benefitMarketing">Marketing</h3>
+    <p class="benefit-card__description">Strong consultation, professional photos and a sophisticated digital marketing plan are necessary for every lasting modern-day business.</p>
+  </article>
+</div>
   </main>
 
   <%- include('../partials/footer') %>

@@ -1,0 +1,10 @@
+@use '../abstracts/variables' as *;
+
+:root {
+  --color-primary: #{$color-primary};
+  --color-bg: #{$color-bg};
+  --color-surface: #{$color-surface};
+  --color-text: #{$color-text};
+  --color-text-muted: #{$color-text-muted};
+  --color-border: #{$color-border};
+}

@@ -1,0 +1,46 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.apply-page {
+  @include make-container(rem(960));
+  padding-top: rem(28);
+
+  &__summary {
+    margin-bottom: rem(28);
+    padding-bottom: rem(20);
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__job-meta {
+    margin-top: rem(8);
+    font-size: rem(14);
+    color: $color-text-muted;
+  }
+}
+
+.apply-layout {
+  @include grid(1, rem(32));
+
+  @include respond-up('desktop') {
+    grid-template-columns: 1fr rem(280);
+    align-items: start;
+  }
+}
+
+.application-form-section__title {
+  margin-bottom: rem(20);
+}
+
+.apply-help {
+  @extend %card-surface;
+  padding: rem(20);
+  @include flex(column, flex-start, stretch, rem(12));
+  font-size: rem(14);
+  color: $color-text-muted;
+
+  &__back-link {
+    color: $color-primary;
+    font-weight: 600;
+  }
+}

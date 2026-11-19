@@ -1,0 +1,139 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.home-hero {
+  position: relative;
+  min-height: rem(380);
+  @include flex(column, center, stretch);
+  background-color: rgba(255, 255, 255, 0.84);
+  overflow: hidden;
+
+  &__picture {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    @include make-container();
+    @include grid(1, rem(20));
+    padding-block: rem(80);
+
+    @include respond-up('desktop') {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+  }
+
+&__text-block {
+    text-align: left; 
+  }
+
+ &__title {
+    font-size: rem(48); 
+    line-height: 1.15;
+    color: #111827; 
+    margin-bottom: rem(24);
+  }
+
+  .hero-line {
+    display: block;
+  }
+
+  .hero-brand {
+    display: block;
+    font-size: rem(56); 
+  }
+
+  &__description {
+    font-size: rem(14);
+    line-height: 1.6;
+    color: $color-text;
+  }
+}
+
+.home-search-section {
+  padding-block: rem(64);
+  background-color: $color-primary; 
+  text-align: center;
+
+  &__title {
+    color: #111827; 
+    margin-bottom: rem(8);
+  }
+
+  &__subtitle {
+    color: #374151; 
+    margin-bottom: rem(32);
+    font-size: rem(16);
+  }
+}
+
+.home-categories,
+.home-featured-jobs,
+.home-investors,
+.home-benefits {
+  @include make-container();
+  padding-top: rem(56);
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: rem(32);
+}
+
+.category-grid {
+  @include grid(1, rem(16));
+
+  @include respond-up('tablet') {
+    @include grid(2, rem(20));
+  }
+
+  @include respond-up('desktop') {
+    @include grid(3, rem(24));
+  }
+}
+
+.job-list {
+  @include flex(column, flex-start, stretch, rem(14));
+}
+
+.home-investors {
+  @include grid(1, rem(28));
+  align-items: center;
+
+  @include respond-up('desktop') {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: rem(48);
+  }
+
+  &__description {
+    margin-top: rem(14);
+    color: $color-text-muted;
+    line-height: 1.65;
+  }
+
+  &__visual {
+    background-color: $color-investor-bg;
+    padding: rem(24);
+    border-radius: $radius-md;
+  }
+}
+
+.benefit-grid {
+  @include grid(1, rem(24));
+
+  @include respond-up('tablet') {
+    @include grid(3, rem(24));
+  }
+}

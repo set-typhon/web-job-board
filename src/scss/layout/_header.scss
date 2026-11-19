@@ -1,0 +1,84 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.site-header {
+  background-color: $color-bg;
+  border-top: rem(28) solid $color-primary;
+  border-bottom: 1px solid $color-border;
+  box-shadow: 0 rem(2) rem(6) rgba(17, 24, 39, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  &__inner {
+    @include make-container();
+    @include flex(row, space-between, center, rem(16));
+    height: rem(68);
+    flex-wrap: wrap;
+  }
+
+  &__brand {
+    @include flex(row, flex-start, center);
+    flex-shrink: 0;
+  }
+
+  &__logo {
+    height: rem(26);
+    width: auto;
+    object-fit: contain;
+  }
+
+  &__menu-toggle {
+    background: none;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    padding: rem(6) rem(10);
+    font-size: rem(18);
+    cursor: pointer;
+
+    @include respond-up('tablet') {
+      display: none;
+    }
+  }
+}
+
+.site-nav {
+  display: none;
+  width: 100%;
+  background-color: $color-bg;
+  padding-block: rem(12);
+
+  &.is-open {
+    display: block;
+    animation: fade 0.2s ease;
+  }
+
+  @include respond-up('tablet') {
+    display: block;
+    width: auto;
+    padding-block: 0;
+    margin-left: auto;
+  }
+
+  &__list {
+    @include flex(column, flex-start, stretch, rem(12));
+
+    @include respond-up('tablet') {
+      flex-direction: row;
+      align-items: center;
+      gap: rem(24);
+    }
+  }
+
+  &__link {
+    font-size: rem(14);
+    font-weight: 500;
+    color: $color-text;
+    transition: color 0.2s ease;
+
+    &:hover { color: $color-primary; }
+    &--accent { color: $color-primary; font-weight: 600; }
+    &--button { color: $color-text-inverse; }
+  }
+}

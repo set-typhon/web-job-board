@@ -1,0 +1,25 @@
+@use 'abstracts/functions';
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+
+@use 'vendors/normalize';
+
+@use 'themes/default';
+
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/animations';
+
+@use 'layout/grid';
+@use 'layout/header';
+@use 'layout/footer';
+
+@use 'components/buttons';
+@use 'components/forms';
+@use 'components/cards';
+@use 'components/pagination';
+
+@use 'pages/home';
+@use 'pages/jobs';
+@use 'pages/job-details';
+@use 'pages/apply';

@@ -1,0 +1,16 @@
+@use 'sass:math';
+
+@function rem($px, $base: 16) {
+  @if math.is-unitless($px) {
+    @return math.div($px, $base) * 1rem;
+  }
+  @return math.div($px, $base * 1px) * 1rem;
+}
+
+@function tint($color, $weight: 15%) {
+  @return color-mix(in srgb, $color #{100% - $weight}, #ffffff #{$weight});
+}
+
+@function shade($color, $weight: 15%) {
+  @return color-mix(in srgb, $color #{100% - $weight}, #000000 #{$weight});
+}

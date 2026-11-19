@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+h1, h2, h3 {
+  font-family: $font-family-heading;
+}
+
+h1 {
+  @include typography(28, 800, 1.2, $color-text);
+
+  @include respond-up('tablet') {
+    @include typography(36, 800, 1.15);
+  }
+
+  @include respond-up('desktop') {
+    @include typography(44, 800, 1.12);
+  }
+}
+
+h2 {
+  @include typography(22, 700, 1.25, $color-text);
+
+  @include respond-up('desktop') {
+    @include typography(28, 700, 1.2);
+  }
+}
+
+h3 {
+  @include typography(17, 700, 1.35, $color-text);
+}

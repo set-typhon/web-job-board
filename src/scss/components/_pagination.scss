@@ -1,0 +1,44 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.breadcrumbs {
+  margin-bottom: rem(20);
+
+  &__list {
+    @include flex(row, flex-start, center, rem(8));
+    flex-wrap: wrap;
+    font-size: rem(13);
+    color: $color-text-muted;
+  }
+
+  &__item + &__item::before {
+    content: '>';
+    margin-right: rem(8);
+  }
+
+  a:hover { color: $color-primary; }
+}
+
+.pagination {
+  @include flex(row, center, center, rem(6));
+  margin-top: rem(32);
+
+  &__link {
+    @include flex(row, center, center);
+    min-width: rem(36);
+    height: rem(36);
+    padding-inline: rem(8);
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    font-size: rem(14);
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover,
+    &--active {
+      background-color: $color-primary;
+      border-color: $color-primary;
+      color: $color-text-inverse;
+    }
+  }
+}

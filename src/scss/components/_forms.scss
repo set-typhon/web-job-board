@@ -1,0 +1,106 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.job-search {
+  @include grid(1, rem(12));
+  @include make-container(rem(1220));
+
+  @include respond-up('desktop') {
+    grid-template-columns: 3fr 3fr 1.2fr 1.2fr auto;
+    gap: rem(10);
+  }
+
+  &__input,
+  &__select {
+    @extend %input-control;
+    height: rem(44);
+  }
+
+  &__field--keyword &__input {
+    
+    background-image: url('/assets/images/icon-search.png');
+    background-repeat: no-repeat;
+    background-position: rem(16) center;
+    padding-left: rem(48); 
+  }
+
+  &__field--location &__input {
+    background-image: url('/assets/images/icon-location.png');
+    background-repeat: no-repeat;
+    background-position: rem(16) center;
+    padding-left: rem(48); 
+  }
+
+&__select {
+    appearance: none; 
+    -webkit-appearance: none;
+    padding-left: rem(16);
+    padding-right: rem(40); 
+    background-image: url('/assets/images/icon-arrow-down.png');
+    background-repeat: no-repeat;
+    background-position: right rem(16) center;
+    cursor: pointer;
+  }
+
+
+  &__submit {
+    height: rem(44);
+    background-color: shade($color-primary, 18%);
+    border-color: shade($color-primary, 18%);
+  }
+
+  &__submit:hover{
+    background-color: shade($color-text);
+  }
+}
+
+.application-form {
+  @include flex(column, flex-start, stretch, rem(20));
+
+  &__group {
+    border: none;
+    padding: 0;
+    margin: 0;
+    @include flex(column, flex-start, stretch, rem(16));
+  }
+
+  &__legend {
+    font-weight: 600;
+    font-size: rem(14);
+    margin-bottom: rem(8);
+  }
+}
+
+.form-field {
+  @include flex(column, flex-start, stretch, rem(6));
+
+  &__label {
+    font-size: rem(13);
+    font-weight: 600;
+    color: $color-text;
+  }
+
+  &__input,
+  &__select,
+  &__textarea {
+    @extend %input-control;
+  }
+}
+
+.form-options {
+  @include flex(column, flex-start, stretch, rem(8));
+}
+
+.form-option,
+.filter-option {
+  @include flex(row, flex-start, center, rem(8));
+  font-size: rem(14);
+  color: $color-text-muted;
+  cursor: pointer;
+
+  &__count {
+    color: $color-text-muted;
+    font-size: rem(12);
+  }
+}

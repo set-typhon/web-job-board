@@ -1,0 +1,193 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.category-card {
+  @extend %card-surface;
+  padding: rem(24);
+  animation: slide 0.4s ease both;
+
+  &__title a {
+    @include flex(row, center, center, rem(10));
+    color: $color-text;
+    transition: color 0.2s ease;
+
+    &:hover { color: $color-primary; }
+  }
+
+  &__icon {
+    width: rem(24);
+    height: rem(24);
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  &__description {
+    margin-top: rem(10);
+    font-size: rem(14);
+    color: $color-text-muted;
+    line-height: 1.55;
+  }
+}
+
+.job-card {
+  @include flex(column, space-between, stretch, rem(16));
+  padding: rem(18) rem(24);
+  background-color: $color-bg;
+  border: 1px solid #d1d5db;
+  border-radius: rem(2);
+  transition: border-color 0.2s ease;
+
+  @include respond-up('tablet') {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &:hover {
+    border-color: $color-primary;
+  }
+
+  &__main {
+    @include flex(row, flex-start, center, rem(18));
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__logo {
+    width: rem(52);
+    height: rem(52);
+    border-radius: rem(10);
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  &__info {
+    min-width: 0;
+  }
+
+  &__title {
+    font-size: rem(16);
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: rem(6);
+
+    a:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__meta {
+    @include flex(row, flex-start, center, rem(10));
+    flex-wrap: wrap;
+    font-size: rem(13);
+    font-weight: 500;
+    color: #4b5563;
+  }
+
+  &__dot {
+    color: #6b7280;
+    font-weight: 700;
+  }
+
+  &__actions {
+    @include flex(row, flex-end, center, rem(22));
+    flex-shrink: 0;
+  }
+
+  &__save {
+    @include flex(row, center, center);
+    padding: rem(6);
+    background: transparent;
+    border: none;
+    color: #111827;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.15s ease;
+
+    &:hover,
+    &[aria-pressed='true'] {
+      color: $color-primary;
+    }
+
+    &[aria-pressed='true'] svg {
+      fill: currentColor;
+    }
+  }
+
+  &__apply {
+    @extend %btn-primary;
+    padding: rem(10) rem(28);
+    border-radius: rem(4);
+    font-size: rem(14);
+  }
+}
+
+.company-card {
+  @extend %card-surface;
+  padding: rem(20);
+  @include flex(column, flex-start, stretch, rem(14));
+
+  &__header {
+    @include flex(row, flex-start, center, rem(12));
+  }
+
+  &__logo {
+    width: rem(44);
+    height: rem(44);
+    border-radius: $radius-sm;
+    object-fit: contain;
+  }
+
+  &__description {
+    font-size: rem(14);
+    color: $color-text-muted;
+    line-height: 1.55;
+  }
+
+  &__facts {
+    @include flex(column, flex-start, stretch, rem(8));
+    border-top: 1px solid $color-border;
+    padding-top: rem(12);
+    font-size: rem(13);
+  }
+
+  &__fact {
+    @include flex(row, space-between, center, rem(8));
+    dt { color: $color-text-muted; }
+    dd { font-weight: 600; }
+  }
+
+  &__tags {
+    @include flex(row, flex-start, center, rem(6));
+    flex-wrap: wrap;
+  }
+
+  &__tag {
+    padding: rem(3) rem(10);
+    font-size: rem(12);
+    background-color: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: rem(99);
+  }
+}
+
+.benefit-card {
+  text-align: center; 
+  padding: rem(36);
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(36);
+    height: rem(36);
+    margin-bottom: rem(20);
+    background-color: $color-primary-soft; 
+    border-radius: 50%;
+    color: $color-primary;  
+  }
+  
+  &__title {
+    font-size: rem(18);
+    margin-bottom: rem(10);
+  }
+}
