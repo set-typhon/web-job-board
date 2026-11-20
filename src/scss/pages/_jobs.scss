@@ -17,12 +17,12 @@
   }
 
   &__title {
-    color: #111827;
+    color: $color-text;
     margin-bottom: rem(6);
   }
 
   &__subtitle {
-    color: #1f2937;
+    color: $color-text;
     margin-bottom: rem(24);
     font-size: rem(14);
 
