@@ -100,7 +100,7 @@
     flex-wrap: wrap;
     font-size: rem(11);
     font-weight: 500;
-    color: $color-text-mute;
+    color: $color-text-muted;
 
     @include respond-up('tablet') {
       gap: rem(10);
@@ -109,7 +109,7 @@
   }
 
   &__dot {
-    color: $color-text-mute;
+    color: $color-text-muted;
     font-weight: 700;
   }
 
@@ -224,8 +224,6 @@
     width: rem(36);
     height: rem(36);
     margin-bottom: rem(20);
-    background-color: $color-primary-soft; 
-    border-radius: 50%;
     color: $color-primary;  
   }
   

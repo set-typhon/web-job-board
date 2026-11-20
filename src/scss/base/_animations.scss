@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
 
 @keyframes appear {
   from {
@@ -43,6 +44,23 @@
   white-space: nowrap;
   border: 0;
 }
+
+.u-hidden {
+  display: none !important;
+}
+
+.u-hidden-mobile {
+  @media (max-width: 47.99rem) {
+    display: none !important;
+  }
+}
+
+.u-hidden-desktop {
+  @include respond-up('desktop') {
+    display: none !important;
+  }
+}
+
 
 @each $key, $val in $spacers {
   .u-mt-#{$key} { margin-top: $val; }

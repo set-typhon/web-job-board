@@ -8,7 +8,8 @@
     "start": "node server.js",
     "dev": "node --watch server.js",
     "sass:watch": "sass --watch src/scss/main.scss:public/css/main.css",
-    "build": "sass src/scss/main.scss:public/css/main.css --style=compressed && node build.js"
+    "build": "sass src/scss/main.scss:public/css/main.css --style=compressed && node build.js",
+    "lint": "eslint ."
   },
   "engines": {
     "node": ">=18"
@@ -19,6 +20,9 @@
     "multer": "^2.5.0"
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.15.0",
+    "gh-pages": "^6.3.0",
+    "globals": "^17.14.0"
   }
 }
