@@ -74,7 +74,7 @@
     </section>
 
     <div class="jobs-layout">
-      <aside class="jobs-filters" aria-label="Filter jobs">
+      <aside class="jobs-filters" id="jobs-filters" aria-label="Filter jobs">
         <form class="filter-form" action="<%= basePath %>/jobs" method="get">
           <input type="hidden" name="q" value="">
           <input type="hidden" name="location" value="">
@@ -122,22 +122,38 @@
       <section class="jobs-results" aria-labelledby="jobs-results-title">
         <header class="jobs-results__header">
           <h2 class="jobs-results__title" id="jobs-results-title">Showing: <%= jobs.length %> jobs</h2>
-          <form class="jobs-results__sort" action="<%= basePath %>/jobs" method="get">
-            <input type="hidden" name="q" value="">
-            <input type="hidden" name="location" value="">
-            <input type="hidden" name="workplace" value="">
-            <input type="hidden" name="type" value="">
-            <input type="hidden" name="category" value="">
 
-            <label class="visually-hidden" for="jobs-sort">Sort jobs</label>
-            <select class="jobs-results__sort-select" id="jobs-sort" name="sort" aria-label="Sort jobs" data-auto-submit>
-              <option value="popular" selected>Most popular</option>
-              <option value="newest">Newest</option>
-              <option value="company">Company name</option>
-            </select>
-          </form>
+          <div class="jobs-results__controls">
+            <button
+              class="jobs-results__filter-toggle"
+              id="jobs-filters-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="jobs-filters"
+              data-i18n="filters.toggle"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 4h18M6 12h12M10 20h4"/>
+              </svg>
+              <span>Filters</span>
+            </button>
+
+            <form class="jobs-results__sort" action="<%= basePath %>/jobs" method="get">
+              <input type="hidden" name="q" value="">
+              <input type="hidden" name="location" value="">
+              <input type="hidden" name="workplace" value="">
+              <input type="hidden" name="type" value="">
+              <input type="hidden" name="category" value="">
+
+              <label class="visually-hidden" for="jobs-sort">Sort jobs</label>
+              <select class="jobs-results__sort-select" id="jobs-sort" name="sort" aria-label="Sort jobs" data-auto-submit>
+                <option value="popular" selected>Most popular</option>
+                <option value="newest">Newest</option>
+                <option value="company">Company name</option>
+              </select>
+            </form>
+          </div>
         </header>
-
         <div class="job-list job-list--results">
           <% jobs.forEach(job => { %>
             <%- include('../partials/job-card', { job: job }) %>

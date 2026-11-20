@@ -35,9 +35,8 @@
 .home-featured-jobs__more {
   @extend %btn-primary;
   display: flex;
-  width: fit-content;
-  min-width: rem(210);
-  margin: rem(32) auto 0;
+  width: 100%;
+  margin: rem(24) auto 0;
   padding: rem(12) rem(32);
   border-radius: rem(4);
   font-size: rem(13);
@@ -45,10 +44,10 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
 
-  &:hover {
-    background-color: $color-text;
-    border-color: $color-text;
-    color: $color-bg;
+  @include respond-up('tablet') {
+    width: fit-content;
+    min-width: rem(210);
+    margin-top: rem(32);
   }
 }
 

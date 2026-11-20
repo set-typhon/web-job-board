@@ -3,41 +3,110 @@
 @use '../abstracts/mixins' as *;
 
 .jobs-search {
-  padding-block: rem(64);
-  background-color: $color-primary; 
+  padding-block: rem(36);
+  background-color: $color-primary;
   text-align: center;
 
+  @include respond-up('desktop') {
+    padding-block: rem(64);
+  }
+
+  &__intro,
+  .job-search {
+    @include make-container();
+  }
+
   &__title {
-    color: #111827; 
-    margin-bottom: rem(8);
+    color: #111827;
+    margin-bottom: rem(6);
   }
 
   &__subtitle {
-    color: #374151; 
-    margin-bottom: rem(32);
-    font-size: rem(16);
+    color: #1f2937;
+    margin-bottom: rem(24);
+    font-size: rem(14);
+
+    @include respond-up('desktop') {
+      margin-bottom: rem(32);
+      font-size: rem(16);
+    }
   }
 }
 
 .jobs-layout {
   @include make-container();
-  @include grid(1, rem(24));
-  padding-top: rem(32);
+  position: relative;
+  padding-top: rem(24);
+
+  @include respond-up('tablet') {
+    padding-top: rem(32);
+  }
 
   @include respond-up('desktop') {
+    @include grid(1, rem(32));
     grid-template-columns: rem(260) 1fr;
-    gap: rem(32);
     align-items: start;
   }
 }
 
 .jobs-filters {
   @extend %card-surface;
+  position: absolute;
+  top: rem(106);
+  left: rem(16);
+  right: rem(16);
+  z-index: 30;
   padding: rem(20);
+  box-shadow: 0 rem(12) rem(28) rgba(17, 24, 39, 0.14);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(rem(-6));
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  @include respond-up('tablet') {
+    top: rem(82);
+    left: auto;
+    right: rem(24);
+    width: rem(320);
+  }
+
+  @include respond-up('desktop') {
+    position: static;
+    width: auto;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
+  }
 }
 
 .filter-form {
   @include flex(column, flex-start, stretch, rem(18));
+
+  &__submit {
+    @extend %btn-primary;
+    width: 100%;
+    padding: rem(10) rem(20);
+    font-size: rem(14);
+  }
+
+  &__reset {
+    text-align: center;
+    font-size: rem(13);
+    color: $color-text-muted;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
 }
 
 .filter-group {
@@ -49,30 +118,106 @@
   &__title {
     font-weight: 700;
     font-size: rem(14);
+    color: $color-text;
     margin-bottom: rem(6);
   }
 }
 
-.filter-form__reset {
-  text-align: center;
-  font-size: rem(13);
-  color: $color-text-muted;
-  &:hover { color: $color-primary; }
+.filter-option {
+  @include flex(row, flex-start, center, rem(8));
+  font-size: rem(14);
+  color: $color-text;
+  cursor: pointer;
+
+  &__input {
+    width: rem(16);
+    height: rem(16);
+    accent-color: $color-primary;
+    cursor: pointer;
+  }
+
+  &__count {
+    color: $color-text-muted;
+    font-size: rem(13);
+  }
 }
 
 .jobs-results {
   &__header {
-    @include flex(row, space-between, center, rem(12));
-    flex-wrap: wrap;
-    margin-bottom: rem(16);
+    @include flex(column, flex-start, stretch, rem(12));
+    margin-bottom: rem(18);
+
+    @include respond-up('tablet') {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   &__title {
     font-size: rem(18);
   }
 
+  &__controls {
+    @include flex(row, space-between, center, rem(10));
+
+    @include respond-up('tablet') {
+      justify-content: flex-end;
+    }
+  }
+
+  &__filter-toggle {
+    @include flex(row, center, center, rem(8));
+    flex: 1;
+    height: rem(40);
+    padding-inline: rem(14);
+    background-color: $color-bg;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    font-size: rem(14);
+    font-weight: 600;
+    color: $color-text;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+
+    @include respond-up('tablet') {
+      flex: none;
+    }
+
+    @include respond-up('desktop') {
+      display: none;
+    }
+
+    &:hover,
+    &[aria-expanded='true'] {
+      border-color: $color-primary;
+      color: $color-primary;
+    }
+  }
+
+  &__sort {
+    flex: 1;
+
+    @include respond-up('tablet') {
+      flex: none;
+    }
+  }
+
   &__sort-select {
     @extend %input-control;
-    width: auto;
+    width: 100%;
+    height: rem(40);
+    padding-inline: rem(12) rem(32);
+    font-size: rem(14);
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url('/assets/images/icon-arrow-down.png');
+    background-repeat: no-repeat;
+    background-position: right rem(12) center;
+    cursor: pointer;
+
+    @include respond-up('tablet') {
+      width: auto;
+    }
   }
 }

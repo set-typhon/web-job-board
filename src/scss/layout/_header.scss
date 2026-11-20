@@ -4,18 +4,25 @@
 
 .site-header {
   background-color: $color-bg;
-  border-top: rem(28) solid $color-primary;
+  border-top: rem(14) solid $color-primary;
   border-bottom: 1px solid $color-border;
   box-shadow: 0 rem(2) rem(6) rgba(17, 24, 39, 0.06);
   position: sticky;
   top: 0;
   z-index: 50;
 
+  @include respond-up('tablet') {
+    border-top-width: rem(24);
+  }
+
   &__inner {
     @include make-container();
     @include flex(row, space-between, center, rem(16));
-    height: rem(68);
-    flex-wrap: wrap;
+    min-height: rem(60);
+
+    @include respond-up('desktop') {
+      min-height: rem(72);
+    }
   }
 
   &__brand {
@@ -24,17 +31,23 @@
   }
 
   &__logo {
-    height: rem(26);
+    height: rem(22);
     width: auto;
     object-fit: contain;
+
+    @include respond-up('desktop') {
+      height: rem(26);
+    }
   }
 
   &__menu-toggle {
+    @include flex(row, center, center);
     background: none;
     border: 1px solid $color-border;
     border-radius: $radius-sm;
     padding: rem(6) rem(10);
     font-size: rem(18);
+    color: $color-text;
     cursor: pointer;
 
     @include respond-up('tablet') {
@@ -44,41 +57,83 @@
 }
 
 .site-nav {
-  display: none;
-  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
   background-color: $color-bg;
-  padding-block: rem(12);
+  border-bottom: 1px solid $color-border;
+  box-shadow: 0 rem(8) rem(16) rgba(17, 24, 39, 0.08);
+  padding: rem(16) rem(20) rem(20);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(rem(-6));
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
 
   &.is-open {
-    display: block;
-    animation: fade 0.2s ease;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
   @include respond-up('tablet') {
-    display: block;
+    position: static;
     width: auto;
-    padding-block: 0;
     margin-left: auto;
+    padding: 0;
+    border-bottom: none;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
   }
 
   &__list {
     @include flex(column, flex-start, stretch, rem(12));
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
     @include respond-up('tablet') {
       flex-direction: row;
       align-items: center;
-      gap: rem(24);
+      gap: rem(20);
+    }
+
+    @include respond-up('desktop') {
+      gap: rem(28);
     }
   }
 
   &__link {
+    display: block;
+    padding-block: rem(4);
     font-size: rem(14);
     font-weight: 500;
     color: $color-text;
+    text-decoration: none;
     transition: color 0.2s ease;
 
-    &:hover { color: $color-primary; }
-    &--accent { color: $color-primary; font-weight: 600; }
-    &--button { color: $color-text-inverse; }
+    &:hover {
+      color: $color-primary;
+    }
+
+    &--accent {
+      color: $color-primary;
+      font-weight: 600;
+    }
+
+    &--button {
+      @extend %btn-primary;
+      padding: rem(9) rem(18);
+      margin-top: rem(4);
+      text-align: center;
+      color: $color-text-inverse;
+
+      @include respond-up('tablet') {
+        margin-top: 0;
+      }
+    }
   }
 }

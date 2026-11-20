@@ -3,55 +3,81 @@
 @use '../abstracts/mixins' as *;
 
 .job-search {
-  @include grid(1, rem(12));
-  @include make-container(rem(1220));
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: rem(12);
+  align-items: center;
 
   @include respond-up('desktop') {
-    grid-template-columns: 3fr 3fr 1.2fr 1.2fr auto;
-    gap: rem(10);
+    grid-template-columns: 2fr 2fr 1.2fr 1.2fr auto;
+  }
+
+  &__field--keyword,
+  &__field--location {
+    grid-column: 1 / -1;
+
+    @include respond-up('desktop') {
+      grid-column: auto;
+    }
   }
 
   &__input,
   &__select {
-    @extend %input-control;
-    height: rem(44);
+    height: rem(46);
+    width: 100%;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    background-color: #ffffff;
+    font-size: rem(14);
+    color: $color-text;
+    outline: none;
+
+    @include respond-up('desktop') {
+      height: rem(48);
+    }
   }
 
   &__field--keyword &__input {
-    
     background-image: url('/assets/images/icon-search.png');
     background-repeat: no-repeat;
-    background-position: rem(16) center;
-    padding-left: rem(48); 
+    background-position: rem(14) center;
+    padding-left: rem(44);
   }
 
   &__field--location &__input {
     background-image: url('/assets/images/icon-location.png');
     background-repeat: no-repeat;
-    background-position: rem(16) center;
-    padding-left: rem(48); 
+    background-position: rem(14) center;
+    padding-left: rem(44);
   }
 
-&__select {
-    appearance: none; 
+  &__select {
+    appearance: none;
     -webkit-appearance: none;
-    padding-left: rem(16);
-    padding-right: rem(40); 
+    padding-left: rem(14);
+    padding-right: rem(34);
     background-image: url('/assets/images/icon-arrow-down.png');
     background-repeat: no-repeat;
-    background-position: right rem(16) center;
+    background-position: right rem(12) center;
     cursor: pointer;
   }
 
-
   &__submit {
-    height: rem(44);
-    background-color: shade($color-primary, 18%);
-    border-color: shade($color-primary, 18%);
-  }
+    @extend %btn-primary;
+    grid-column: 1 / -1;
+    width: 100%;
+    height: rem(46);
+    padding-inline: rem(32);
+    border: 1px solid #0f172a;
+    font-size: rem(16);
+    font-weight: 700;
 
-  &__submit:hover{
-    background-color: shade($color-text);
+    @include respond-up('desktop') {
+      grid-column: auto;
+      width: auto;
+      height: rem(48);
+      font-size: rem(15);
+    }
   }
 }
 

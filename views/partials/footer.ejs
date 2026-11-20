@@ -1,15 +1,13 @@
 <footer class="site-footer" id="site-footer">
-  <picture class="site-footer__picture">
+<picture class="site-footer__picture">
     <source
-      media="(max-width: 48rem)"
-      srcset="<%= basePath %>/assets/images/footer-city-mobile.webp 720w"
+      media="(min-width: 48rem)"
+      srcset="<%= basePath %>/assets/images/footer-city.webp 914w"
       sizes="100vw"
     >
     <img
       class="site-footer__image"
       src="<%= basePath %>/assets/images/footer-city.webp"
-      srcset="<%= basePath %>/assets/images/footer-city.webp 914w"
-      sizes="100vw"
       alt=""
       loading="lazy"
     >
@@ -76,11 +74,11 @@
   <img class="site-footer__logo" src="<%= basePath %>/assets/images/logo_white.png" alt="Heuristic" width="100" height="20" loading="lazy">
 </a>
     <p class="site-footer__copyright">© 2026 All Rights Reserved</p>
-    <nav class="social-links" aria-label="Social media">
-      <a class="social-links__link" href="https://twitter.com/"><img class="site-footer__logo" src="<%= basePath %>/assets/images/Twitter.png" alt="Heuristic on Twitter" width="24" height="24" loading="lazy"></a>
-       <a class="social-links__link" href="https://instagram.com/"><img class="site-footer__logo" src="<%= basePath %>/assets/images/Instagram.png" alt="Heuristic on Instagram" width="24" height="24" loading="lazy"></a>
-       <a class="social-links__link" href="https://facebook.com/"><img class="site-footer__logo" src="<%= basePath %>/assets/images/Facebook.png" alt="Heuristic on Facebook" width="24" height="24" loading="lazy"></a>
-       <a class="social-links__link" href="https://linkedin.com/"><img class="site-footer__logo" src="<%= basePath %>/assets/images/LinkedIn.png" alt="Heuristic on LinkedIn" width="24" height="24" loading="lazy"></a>
+  <nav class="social-links" aria-label="Social media">
+      <a class="social-links__link" href="https://twitter.com/" aria-label="Twitter"><img class="social-links__icon" src="<%= basePath %>/assets/images/Twitter.png" alt="" width="16" height="16" loading="lazy"></a>
+      <a class="social-links__link" href="https://instagram.com/" aria-label="Instagram"><img class="social-links__icon" src="<%= basePath %>/assets/images/Instagram.png" alt="" width="16" height="16" loading="lazy"></a>
+      <a class="social-links__link" href="https://facebook.com/" aria-label="Facebook"><img class="social-links__icon" src="<%= basePath %>/assets/images/Facebook.png" alt="" width="16" height="16" loading="lazy"></a>
+      <a class="social-links__link" href="https://linkedin.com/" aria-label="LinkedIn"><img class="social-links__icon" src="<%= basePath %>/assets/images/LinkedIn.png" alt="" width="16" height="16" loading="lazy"></a>
     </nav>
   </div>
 </footer>

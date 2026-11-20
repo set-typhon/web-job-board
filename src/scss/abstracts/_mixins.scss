@@ -33,11 +33,19 @@
   @if $color { color: $color; }
 }
 
-@mixin make-container($max-width: $container-max, $gutter: $grid-gutter) {
+@mixin make-container($max-width: rem(1200)) {
   width: 100%;
   max-width: $max-width;
   margin-inline: auto;
-  padding-inline: math.div($gutter, 2);
+  padding-inline: rem(16);
+
+  @include respond-up('tablet') {
+    padding-inline: rem(24);
+  }
+
+  @include respond-up('desktop') {
+    padding-inline: rem(32);
+  }
 }
 
 @mixin make-row($gutter: $grid-gutter) {

@@ -19,7 +19,7 @@
       <picture class="home-hero__picture">
         <source
           media="(max-width: 48rem)"
-          srcset="<%= basePath %>/assets/images/hero-office-mobile.webp 480w"
+          srcset="<%= basePath %>/assets/images/hero-office.webp 480w"
           sizes="100vw"
         >
         <img
@@ -186,40 +186,34 @@
         <a class="home-investors__link" href="mailto:ouramazing@mail.com">Find investors</a>
       </aside>
       <figure class="home-investors__visual">
-        <picture>
-          <source media="(max-width: 48rem)" srcset="<%= basePath %>/assets/images/investor-dashboard-mobile.webp 720w" sizes="100vw">
-          <img
-            class="home-investors__image"
-            src="<%= basePath %>/assets/images/investor-dashboard.webp"
-            srcset="<%= basePath %>/assets/images/investor-dashboard.webp 1000w"
-            sizes="(max-width: 48rem) 100vw, 40vw"
-            alt="Illustration of an investment dashboard with income, utilities, and revenue indicators"
-            loading="lazy"
-          >
-        </picture>
         <figcaption class="visually-hidden">Investor dashboard illustration</figcaption>
       </figure>
     </section>
 
-   <div class="benefit-grid">
-  <article class="benefit-card">
-    <img class="benefit-card__icon" src="<%= basePath %>/assets/images/icon-potential.png" alt="" aria-hidden="true" loading="lazy">
-    <h3 class="benefit-card__title" data-i18n="home.benefitPotential">Potential</h3>
-    <p class="benefit-card__description">Whether you are looking for a job or to advertise your startup, you will work through essential steps and projects.</p>
-  </article>
+  <section class="home-benefits" aria-labelledby="home-benefits-title">
+      <header class="section-heading">
+        <h2 class="section-heading__title" id="home-benefits-title" data-i18n="home.benefitsTitle">Why Choose Us?</h2>
+      </header>
+      <div class="benefit-grid">
+        <article class="benefit-card">
+          <img class="benefit-card__icon" src="<%= basePath %>/assets/images/icon-potential.png" alt="" aria-hidden="true" loading="lazy">
+          <h3 class="benefit-card__title" data-i18n="home.benefitPotential">Potential</h3>
+          <p class="benefit-card__description">Whether you are looking for a job or to advertise your startup, you will work through essential steps and projects.</p>
+        </article>
 
-  <article class="benefit-card">
-    <img class="benefit-card__icon" src="<%= basePath %>/assets/images/icon-design.png" alt="" aria-hidden="true" loading="lazy">
-    <h3 class="benefit-card__title" data-i18n="home.benefitDesign">Design</h3>
-    <p class="benefit-card__description">Our system is designed solely to bring you success in your career or project.</p>
-  </article>
+        <article class="benefit-card">
+          <img class="benefit-card__icon" src="<%= basePath %>/assets/images/icon-design.png" alt="" aria-hidden="true" loading="lazy">
+          <h3 class="benefit-card__title" data-i18n="home.benefitDesign">Design</h3>
+          <p class="benefit-card__description">Our system is designed solely to bring you success in your career or project.</p>
+        </article>
 
-  <article class="benefit-card">
-    <img class="benefit-card__icon" src="<%= basePath %>/assets/images/icon-marketing.png" alt="" aria-hidden="true" loading="lazy">
-    <h3 class="benefit-card__title" data-i18n="home.benefitMarketing">Marketing</h3>
-    <p class="benefit-card__description">Strong consultation, professional photos and a sophisticated digital marketing plan are necessary for every lasting modern-day business.</p>
-  </article>
-</div>
+        <article class="benefit-card">
+          <img class="benefit-card__icon" src="<%= basePath %>/assets/images/icon-marketing.png" alt="" aria-hidden="true" loading="lazy">
+          <h3 class="benefit-card__title" data-i18n="home.benefitMarketing">Marketing</h3>
+          <p class="benefit-card__description">Strong consultation, professional photos and a sophisticated digital marketing plan are necessary for every lasting modern-day business.</p>
+        </article>
+      </div>
+    </section>
   </main>
 
   <%- include('../partials/footer') %>

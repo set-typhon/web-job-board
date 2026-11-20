@@ -2,6 +2,14 @@
 @use '../abstracts/functions' as *;
 @use '../abstracts/mixins' as *;
 
+.page--job-details {
+  padding-bottom: rem(74);
+
+  @include respond-up('desktop') {
+    padding-bottom: 0;
+  }
+}
+
 .job-details-page {
   @include make-container();
   padding-top: rem(28);
@@ -89,13 +97,75 @@
   @include flex(column, flex-start, stretch, rem(16));
 
   &__actions {
-    @include flex(column, flex-start, stretch, rem(10));
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: rem(12);
+    padding: rem(12) rem(16);
+    background-color: $color-bg;
+    border-top: 1px solid $color-border;
+    box-shadow: 0 rem(-4) rem(12) rgba(17, 24, 39, 0.08);
+
+    @include respond-up('tablet') {
+      padding-inline: rem(24);
+    }
+
+    @include respond-up('desktop') {
+      position: static;
+      @include flex(column, flex-start, stretch, rem(10));
+      padding: 0;
+      background-color: transparent;
+      border-top: none;
+      box-shadow: none;
+    }
+  }
+
+  &__apply {
+    @extend %btn-primary;
+    width: 100%;
+    padding: rem(12) rem(16);
+    border-radius: $radius-sm;
+    font-size: rem(14);
+    text-align: center;
+  }
+
+  &__save {
+    @include flex(row, center, center, rem(8));
+    width: 100%;
+    padding: rem(12) rem(16);
+    background-color: $color-bg;
+    border: 1px solid #9ca3af;
+    border-radius: $radius-sm;
+    font-size: rem(14);
+    font-weight: 600;
+    color: $color-text;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+      border-color: $color-primary;
+      color: $color-primary;
+    }
+
+    &[aria-pressed='true'] {
+      border-color: $color-primary;
+      background-color: $color-primary-soft;
+      color: $color-primary;
+    }
   }
 
   &__report {
     text-align: center;
     font-size: rem(13);
     color: $color-text-muted;
-    &:hover { color: $color-primary; }
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-primary;
+    }
   }
 }

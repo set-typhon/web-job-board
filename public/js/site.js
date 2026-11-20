@@ -264,3 +264,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+const filterToggle = document.getElementById('jobs-filters-toggle');
+const filtersPanel = document.getElementById('jobs-filters');
+
+if (filterToggle && filtersPanel) {
+  filterToggle.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const isOpen = filtersPanel.classList.toggle('is-open');
+    filterToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!filtersPanel.contains(event.target) && !filterToggle.contains(event.target)) {
+      filtersPanel.classList.remove('is-open');
+      filterToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}

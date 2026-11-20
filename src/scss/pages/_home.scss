@@ -4,21 +4,27 @@
 
 .home-hero {
   position: relative;
-  min-height: rem(380);
+  min-height: rem(320);
   @include flex(column, center, stretch);
-  background-color: rgba(255, 255, 255, 0.84);
+  background-color: $color-bg;
   overflow: hidden;
+
+  @include respond-up('desktop') {
+    min-height: rem(420);
+  }
 
   &__picture {
     position: absolute;
     inset: 0;
     z-index: 0;
-    opacity: 1;
+    opacity: 0.5;
+    pointer-events: none;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
     }
   }
 
@@ -26,56 +32,103 @@
     position: relative;
     z-index: 1;
     @include make-container();
-    @include grid(1, rem(20));
-    padding-block: rem(80);
+    @include grid(1, rem(18));
+    padding-block: rem(36);
+    text-align: center;
+
+    @include respond-up('tablet') {
+      padding-block: rem(56);
+    }
 
     @include respond-up('desktop') {
       grid-template-columns: 1fr 1fr;
       align-items: center;
+      gap: rem(40);
+      padding-block: rem(80);
+      text-align: left;
     }
   }
 
-&__text-block {
-    text-align: left; 
-  }
+  &__title {
+    font-size: rem(24);
+    line-height: 1.25;
+    color: $color-text;
+    margin-bottom: rem(8);
 
- &__title {
-    font-size: rem(48); 
-    line-height: 1.15;
-    color: #111827; 
-    margin-bottom: rem(24);
+    @include respond-up('tablet') {
+      font-size: rem(36);
+    }
+
+    @include respond-up('desktop') {
+      font-size: rem(48);
+      line-height: 1.15;
+      margin-bottom: 0;
+    }
   }
 
   .hero-line {
-    display: block;
+    display: inline;
+
+    @include respond-up('desktop') {
+      display: block;
+    }
   }
 
   .hero-brand {
     display: block;
-    font-size: rem(56); 
+    font-size: rem(30);
+    margin-top: rem(4);
+
+    @include respond-up('tablet') {
+      font-size: rem(42);
+    }
+
+    @include respond-up('desktop') {
+      font-size: rem(56);
+      margin-left: rem(56);
+    }
   }
 
   &__description {
-    font-size: rem(14);
+    font-size: rem(13);
     line-height: 1.6;
     color: $color-text;
+
+    @include respond-up('desktop') {
+      font-size: rem(14);
+      line-height: 1.65;
+    }
   }
 }
 
 .home-search-section {
-  padding-block: rem(64);
-  background-color: $color-primary; 
+  padding-block: rem(36);
+  background-color: $color-primary;
   text-align: center;
 
+  @include respond-up('desktop') {
+    padding-block: rem(64);
+  }
+
+  &__intro,
+  .job-search {
+    @include make-container();
+  }
+
   &__title {
-    color: #111827; 
-    margin-bottom: rem(8);
+    color: #111827;
+    margin-bottom: rem(6);
   }
 
   &__subtitle {
-    color: #374151; 
-    margin-bottom: rem(32);
-    font-size: rem(16);
+    color: #1f2937;
+    margin-bottom: rem(24);
+    font-size: rem(14);
+
+    @include respond-up('desktop') {
+      margin-bottom: rem(32);
+      font-size: rem(16);
+    }
   }
 }
 
@@ -117,16 +170,47 @@
     gap: rem(48);
   }
 
+  &__title {
+    text-align: center;
+
+    @include respond-up('desktop') {
+      text-align: left;
+    }
+  }
+
   &__description {
     margin-top: rem(14);
+    margin-bottom: rem(22);
+    font-size: rem(13);
     color: $color-text-muted;
     line-height: 1.65;
+
+    @include respond-up('desktop') {
+      font-size: rem(14);
+    }
+  }
+
+  &__link {
+    @extend %btn-primary;
+    width: 100%;
+    padding: rem(12) rem(28);
+    font-size: rem(15);
+
+    @include respond-up('tablet') {
+      width: fit-content;
+      min-width: rem(190);
+    }
   }
 
   &__visual {
-    background-color: $color-investor-bg;
-    padding: rem(24);
-    border-radius: $radius-md;
+    display: none;
+
+    @include respond-up('desktop') {
+      display: block;
+      background-color: $color-investor-bg;
+      padding: rem(24);
+      border-radius: $radius-md;
+    }
   }
 }
 
