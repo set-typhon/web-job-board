@@ -1,0 +1,236 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.category-card {
+  @extend %card-surface;
+  padding: rem(24);
+  animation: slide 0.4s ease both;
+
+  &__title a {
+    @include flex(row, center, center, rem(10));
+    color: $color-text;
+    transition: color 0.2s ease;
+
+    &:hover { color: $color-primary; }
+  }
+
+  &__icon {
+    width: rem(24);
+    height: rem(24);
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  &__description {
+    margin-top: rem(10);
+    font-size: rem(14);
+    color: $color-text-muted;
+    line-height: 1.55;
+  }
+}
+
+.job-card {
+  @include flex(row, space-between, center, rem(10));
+  padding: rem(12) rem(14);
+  background-color: $color-bg;
+  border: 1px solid $color-primary-soft;
+  border-radius: rem(2);
+  transition: border-color 0.2s ease;
+
+  @include respond-up('tablet') {
+    padding: rem(18) rem(24);
+    gap: rem(16);
+  }
+
+  &:hover {
+    border-color: $color-primary;
+  }
+
+  &__main {
+    @include flex(row, flex-start, center, rem(12));
+    flex: 1;
+    min-width: 0;
+
+    @include respond-up('tablet') {
+      gap: rem(18);
+    }
+  }
+
+  &__logo {
+    width: rem(40);
+    height: rem(40);
+    border-radius: rem(8);
+    object-fit: contain;
+    flex-shrink: 0;
+
+    @include respond-up('tablet') {
+      width: rem(52);
+      height: rem(52);
+      border-radius: rem(10);
+    }
+  }
+
+  &__info {
+    min-width: 0;
+  }
+
+  &__title {
+    font-size: rem(14);
+    font-weight: 700;
+    color: $color-text;
+    margin-bottom: rem(3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include respond-up('tablet') {
+      font-size: rem(16);
+      margin-bottom: rem(6);
+      white-space: normal;
+    }
+
+    a:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__meta {
+    @include flex(row, flex-start, center, rem(6));
+    flex-wrap: wrap;
+    font-size: rem(11);
+    font-weight: 500;
+    color: $color-text-muted;
+
+    @include respond-up('tablet') {
+      gap: rem(10);
+      font-size: rem(13);
+    }
+  }
+
+  &__dot {
+    color: $color-text-muted;
+    font-weight: 700;
+  }
+
+  &__actions {
+    @include flex(row, flex-end, center, rem(8));
+    flex-shrink: 0;
+
+    @include respond-up('tablet') {
+      gap: rem(22);
+    }
+  }
+
+  &__save {
+    @include flex(row, center, center);
+    padding: rem(4);
+    background: transparent;
+    border: none;
+    color: $color-text;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    svg {
+      width: rem(18);
+      height: rem(18);
+
+      @include respond-up('tablet') {
+        width: rem(22);
+        height: rem(22);
+      }
+    }
+
+    &:hover,
+    &[aria-pressed='true'] {
+      color: $color-primary;
+    }
+
+    &[aria-pressed='true'] svg {
+      fill: currentColor;
+    }
+  }
+
+  &__apply {
+    @extend %btn-primary;
+    padding: rem(7) rem(14);
+    border-radius: rem(4);
+    font-size: rem(12);
+
+    @include respond-up('tablet') {
+      padding: rem(10) rem(28);
+      font-size: rem(14);
+    }
+  }
+}
+
+.company-card {
+  @extend %card-surface;
+  padding: rem(20);
+  @include flex(column, flex-start, stretch, rem(14));
+
+  &__header {
+    @include flex(row, flex-start, center, rem(12));
+  }
+
+  &__logo {
+    width: rem(44);
+    height: rem(44);
+    border-radius: $radius-sm;
+    object-fit: contain;
+  }
+
+  &__description {
+    font-size: rem(14);
+    color: $color-text-muted;
+    line-height: 1.55;
+  }
+
+  &__facts {
+    @include flex(column, flex-start, stretch, rem(8));
+    border-top: 1px solid $color-border;
+    padding-top: rem(12);
+    font-size: rem(13);
+  }
+
+  &__fact {
+    @include flex(row, space-between, center, rem(8));
+    dt { color: $color-text-muted; }
+    dd { font-weight: 600; }
+  }
+
+  &__tags {
+    @include flex(row, flex-start, center, rem(6));
+    flex-wrap: wrap;
+  }
+
+  &__tag {
+    padding: rem(3) rem(10);
+    font-size: rem(12);
+    background-color: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: rem(99);
+  }
+}
+
+.benefit-card {
+  text-align: center; 
+  padding: rem(36);
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(36);
+    height: rem(36);
+    margin-bottom: rem(20);
+    background-color: $color-primary-soft; 
+    border-radius: 50%;
+    color: $color-primary;  
+  }
+  
+  &__title {
+    font-size: rem(18);
+    margin-bottom: rem(10);
+  }
+}
